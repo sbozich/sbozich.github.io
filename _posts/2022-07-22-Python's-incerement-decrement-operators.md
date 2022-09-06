@@ -32,15 +32,14 @@ Output:
 ```
 
 Of course, while loop is the same as for loop, just slightly reconstructed:
-
 ```c#
 int a=5;
 int i=10;
 
 while (i>=a)
 {
-    Console.WriteLine(i);
-    i--;
+  Console.WriteLine(i);
+  i--;
 }
 ```
 Output: same as previous example.
