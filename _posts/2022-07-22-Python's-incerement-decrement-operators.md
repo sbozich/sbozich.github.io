@@ -1,9 +1,8 @@
 ---
-#title: Python’s (non-existing) increment/decrement operators
+title: Python’s (non-existing) increment/decrement operators
 categories: [python, coding]
 tags: [python]
 ---
-# Python’s (non-existing) increment/decrement operators
 
 Have you tried using very basic ++/-- operators in Python? Incrementing/decrementing of numeric variables should be routine, right? Actually, it turns out they do not exist, and that they are not necessary. In C(ish) languages, unary operators are commonly used in flow control as iterators, providing the ability of loop’s progression within specified limits (pre- and postfix difference will be discarded here). So simple, basic for loop in C# looks something like this:
 
