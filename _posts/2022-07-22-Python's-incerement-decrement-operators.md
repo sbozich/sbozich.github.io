@@ -32,17 +32,21 @@ Output:
 ```
 
 Of course, while loop is the same as for loop, just slightly reconstructed:
+
 ```c#
 int a=5;
 int i=10;
 
 while (i>=a)
 {
-  Console.WriteLine(i);
-  i--;
+    Console.WriteLine(i);
+    i--;
 }
 ```
-Output: same as previous example.
+
+Output:
+
+same as previous example.
 
 So unary operator ‘--’ decrements the integer variable by one. Attempting to use same in Python gives an error because unary operators don’t exist in Python which may be surprising to some. Sure, instead of i-- in C# we could use i=i-1 or its somewhat shorter version i-=1, no problems whatsoever. Same is possible in Python as well. But, let’s go a bit deeper to see what is really going behind the scenes in Python when it comes to variables changing their values, and why the nonexistence of unary operators isn’t a big deal.
 
