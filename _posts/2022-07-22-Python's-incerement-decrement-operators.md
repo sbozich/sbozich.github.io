@@ -33,7 +33,7 @@ Output:
 
 Of course, while loop is the same as for loop, just slightly reconstructed:
 
-```C#
+```c#
 int a=5;
 int i=10;
 
