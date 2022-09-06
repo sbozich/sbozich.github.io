@@ -4,7 +4,6 @@ categories: [algorithms, complexity analysis]
 tags: [Big-O, algorithms]
 ---
 
-# Algorithms’ complexity analysis<code>&#58;</code> the Big-O Notation
 
 As there usually are multiple ways to solve the given problem, given the multiple algorithms’ implementation, one would find their comparation useful. This is what is algorithm analysis all about.  Suppose we want to sum the first n integers: user inputs the number and all integers from 1 till n are summed up. We could do it via iteration like this:
 

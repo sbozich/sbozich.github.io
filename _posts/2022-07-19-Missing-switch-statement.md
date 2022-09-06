@@ -4,8 +4,6 @@ categories: [python, coding]
 tags: [python, branching]
 ---
 
-# Missing ‘switch’ Statement? Python 3.10 gets you covered
-
 Most languages support multiple flow control statements, vast majority of them is familiar with if and switch. So, someone coming from C/C++/Java/C# and alike languages might wonder about equivalent statement in Python. First of all, let’s clarify the subtle difference between those statements in order to see what exactly are we looking for.
 
 Consider a simple structure in Python:
