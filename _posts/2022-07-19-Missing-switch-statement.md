@@ -1,5 +1,5 @@
 ---
-title: Missing ‘switch’ Statement? Python 3.10 gets you covered
+#title: Missing ‘switch’ Statement? Python 3.10 gets you covered
 categories: [python, coding]
 tags: [python, branching]
 ---

@@ -1,5 +1,5 @@
 ---
-title: Algorithms’ complexity analysis<code>&#58;</code> the Big-O Notation
+#title: Algorithms’ complexity analysis<code>&#58;</code> the Big-O Notation
 categories: [algorithms, complexity analysis]
 tags: [Big-O, algorithms]
 ---
