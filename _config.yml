@@ -21,9 +21,9 @@ timezone: Europe/Vienna
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Just some random website                          # the main title
+title: sbozich              # the main title
 
-tagline: Bits&pieces about anything   # it will display as the sub-title
+tagline: Bits&pieces mostly about tech   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   This is a personal webpage outlining my thoughts about stuff I find interesting.
