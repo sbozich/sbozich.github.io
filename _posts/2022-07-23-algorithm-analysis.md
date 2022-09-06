@@ -1,6 +1,6 @@
 ---
 title: Algorithms’ complexity analysis: the Big-O Notation
-categories: [algorithms]
+categories: [algorithms, complexity analysis]
 tags: [Big-O, algorithms]
 ---
 
@@ -68,9 +68,7 @@ for (int i=0; i<x, i++): // execution x times
 
 which translates to x+c+x^2= O(x^2).
 
-## If statements. 
-
-Worst execution time translates to the if test itself plus code after if or else statement, whatever is longer to execute.
+* If statements. Worst execution time translates to the if test itself plus code after if or else statement, whatever is longer to execute. For example:
 
 ```c#
 if x==0 // constant time
@@ -85,9 +83,7 @@ Console.WriteLine(“Number is “ + i) // constant time
 
 so, total time = c+x+c=O(x).
 
-## Logarithmic-complexity statements. 
-
-If it takes a constant time to reduce the problem size by a fraction, then algorithm is O(logn). For instance:
+* Logarithmic-complexity statements.  If it takes a constant time to reduce the problem size by a fraction, then algorithm is O(logn). For instance:
 
 ```c#
 void Log(int x)
@@ -118,8 +114,13 @@ The loop exits after n times so we can define 2^k=x => k=logn (base 2 rather tha
 
 Generally, we can establish the estimates for the commonly used mathematical expressions as follows:
 
- 
-https://www.bigocheatsheet.com/
+![Common time complexities](https://sbozich.github.io/assets/23072201.jpg) _Figure 1: Common time complexities_
+
+
+![img-description](https://sbozich.github.io/assets/23072202.jpg) _Figure 2: Graphical representation of some time complexities_
+
+
+
 
 One can dive more into mathematics and complexity theory to further study the best and average cases as well as amortized analysis; however, for most approximations and comparations the worst-case algorithm’s behavior depicted by the Big-O notation suffices. 
 
