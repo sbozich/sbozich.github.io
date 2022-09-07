@@ -70,7 +70,7 @@ Mutable are considered following Python’s objects:
 -	sets,
 -	most custom created OOP objects.
 
-Those can be changed in place as we will see in the part 2 of this article. 
+Those can be changed in place as we can see in the <a href="https://sbozich.github.io/posts/dynamic-typing-pt2/" title="Go to Pt. 2" target="_blank">part 2 of this article</a>. 
 
 ## Multiple (shared) references
 Until now, we have been assigning values with some values, which creates objects in the background. There is another possibility - assigning variable to another variable: 
