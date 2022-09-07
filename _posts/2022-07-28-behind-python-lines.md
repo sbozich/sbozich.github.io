@@ -110,10 +110,10 @@ b'd\x01d\x02\x13\x00d\x03\x17\x00S\x00'
 
 What those bytes stand for? They are low-level specifications of the intermediate instructions we already seen, which are then being fed into the virtual machine and actually executed. So, your code is dismantled into byte representations and then run on virtual machine which does another level of abstraction by separating the bytecode from actual, native code which all CPUs need to be able to produce a valid output. Long way down from writing “Hello world”!
 
-### Conclusion
+## Conclusion
 This article gives a broad overview on Python’s interpreter internal dealings. It shows that Python, being a high-level language, consists of multiple layers of abstraction which hide many assembly details from the end user, providing an ease of use, readability, portability, automatic optimization and more. The only drawback is running time which, depending on one’s particular usage, may or may not be the issue. 
 
-### References
+## References
 
 https://www.youtube.com/watch?v=tzYhv61piNY
 <br>
