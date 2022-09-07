@@ -25,7 +25,7 @@ userInput=1;
 switch (userInput)
 {
     case 1:
-        Console.WriteLine("Discounted Price 1=40");
+        Console.WriteLine('Discounted Price 1=40');
         break;
     case 2:
         Console.WriteLine("Discounted Price 2=35");

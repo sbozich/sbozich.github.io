@@ -73,11 +73,11 @@ which translates to x+c+x^2= O(x^2).
 ```c#
 if x==0 // constant time
 {
-  Console.WriteLine(“Incorrect”);
+  Console.WriteLine("Incorrect");
 else 
   for (int i=1; i<x; i++) // x times
 {
-Console.WriteLine(“Number is “ + i) // constant time
+Console.WriteLine("Number is " + i) // constant time
 }
 ```
 
