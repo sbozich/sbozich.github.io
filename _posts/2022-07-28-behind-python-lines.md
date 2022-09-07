@@ -115,7 +115,8 @@ This article gives a broad overview on Python’s interpreter internal dealings.
 
 ### References
 
-https://www.youtube.com/watch?v=tzYhv61piNY
-<br>https://tech.blog.aknin.name/category/my-projects/pythons-innards/<br>https://leanpub.com/insidethepythonvirtualmachine
+* https://www.youtube.com/watch?v=tzYhv61piNY
+* https://tech.blog.aknin.name/category/my-projects/pythons-innards/
+* https://leanpub.com/insidethepythonvirtualmachine
 
 
