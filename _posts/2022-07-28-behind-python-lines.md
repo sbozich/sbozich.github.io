@@ -15,12 +15,15 @@ The final product of the user’s code in Python is .py file. On its execution, 
 4.	Maybe you want to write your own programming language.
 
 ## Python blends
+
 As it turns out, Python has multiple implementations written in different languages. When we say Python, which actually is a specification, we usually think on its standard implementation called CPython and written in C and Python. It serves multiple roles: it is an interpreter, a compiler, a standard library, a parser and much more. There are many other variants, like Jython (Python implemented in Java), IronPython (.NET implementation), PyPy (fast-running Python, interpreted and compiled to optimized machine code), Cython (static-typing support, compiling to C code, really fast), Stackless (implemented in PyPy) and so on. In this text we will be considering CPython.
 
 ## Intermediary code
+
 In contrast to C/C++ which compile directly to machine code on a given platform and execute directly on CPU using its native instructions (therefore being fast as it gets, actually only thing that could be faster would be executing assembly instructions), Python compiles the source code into bytecode, which is assembly-alike, intermediary code with its syntax and semantics which is then interpreted in Python’s virtual machine (not on the CPU). So, Python adds one layer of abstraction between hardware and operating system, executing its bytecode internally on virtual software, achieving universal portability, but loosing speed: while C/C++ code must be compiled prior to run on any particular platform, Python (just like Java) runs platform-independent because it executes virtually. So basically, bytecode is a language hidden behind the Python’s code and developers usually do not bother with it nor the majority of users probably are aware that it exists. That is one of the reasons why Python is a high-level programming language: through automatization and optimization, it hides many steps from the developer, achieving clear, readable, human-language alike syntax which comes at the price of creating overhead and increasing complexity on its executing side which affects performance.
 
 ## Analyzing bytecode
+
 There is a way to disassemble bytecode by using the dis module. https://docs.python.org/3/library/dis.html
 The dis module disassembles Python source code into internal, individual instructions which are executed by the interpreter. So, for this basic code:
 
@@ -112,15 +115,3 @@ What those bytes stand for? They are low-level specifications of the intermediat
 
 ## Conclusion
 This article gives a broad overview on Python’s interpreter internal dealings. It shows that Python, being a high-level language, consists of multiple layers of abstraction which hide many assembly details from the end user, providing an ease of use, readability, portability, automatic optimization and more. The only drawback is running time which, depending on one’s particular usage, may or may not be the issue. 
-
-## References
-
-https://www.youtube.com/watch?v=tzYhv61piNY
-<br>
-
-https://tech.blog.aknin.name/category/my-projects/pythons-innards/
-<br>
-
-https://leanpub.com/insidethepythonvirtualmachine
-
-
