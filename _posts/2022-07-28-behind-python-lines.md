@@ -1,7 +1,7 @@
 ---
 title: Behind Python's lines
-categories: [Python, bytecode]
-tags: [Python, interpreter, compiler, bytecode]
+categories: [python, bytecode]
+tags: [python, interpreter, compiler, bytecode]
 ---
 
 The final product of the user’s code in Python is .py file. On its execution, the source file is passed to a Python as an argument, compiled to the intermediary byte-code and then interpreted in the Python Virtual Machine. A lot of happenings, most of which is hidden to the user. Why care, if the code runs appropriately? There are a couple of reasons:

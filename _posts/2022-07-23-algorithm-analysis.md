@@ -1,7 +1,7 @@
 ---
 title: Algorithms’ complexity analysis - the Big-O Notation
 categories: [algorithms, complexity analysis]
-tags: [Big-O, algorithms]
+tags: [big-O, algorithms]
 ---
 
 
