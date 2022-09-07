@@ -114,10 +114,8 @@ What those bytes stand for? They are low-level specifications of the intermediat
 This article gives a broad overview on Python’s interpreter internal dealings. It shows that Python, being a high-level language, consists of multiple layers of abstraction which hide many assembly details from the end user, providing an ease of use, readability, portability, automatic optimization and more. The only drawback is running time which, depending on one’s particular usage, may or may not be the issue. 
 
 ### References
+
 https://www.youtube.com/watch?v=tzYhv61piNY
-<br>
-https://tech.blog.aknin.name/category/my-projects/pythons-innards/
-<br>
-https://leanpub.com/insidethepythonvirtualmachine
+<br>https://tech.blog.aknin.name/category/my-projects/pythons-innards/<br>https://leanpub.com/insidethepythonvirtualmachine
 
 
