@@ -10,13 +10,13 @@ Consider a simple structure in Python:
 ``` python
 userInput=1
 if (userInput==1):
-    print(“Addition”)
+    print("Addition")
 elif (userInput==2):
-   print(“Subtraction”)
+   print("Subtraction")
 elif (userInput==3):
-    print(“Multiplication”)
+    print("Multiplication")
 elif(userInput==4):
-    print(“Division”)
+    print("Division")
 ```
 Depending of the value of the variable userInput, we want to achieve different outcomes. Sure, multiple if/elif/else statements are doing the job, but if we’d had quite a bit more of conditions, the code would look somewhat cumbersome. Instead, one might feel a need to use a switch statement, especially if coming from C(ish) language(s). Implementing switch in C# would look something like:
 
@@ -25,13 +25,13 @@ userInput=1;
 switch (userInput)
 {
     case 1:
-        Console.WriteLine(“Discounted Price 1=40”);
+        Console.WriteLine("Discounted Price 1=40");
         break;
     case 2:
-        Console.WriteLine(“Discounted Price 2=35”);
+        Console.WriteLine("Discounted Price 2=35");
         break;
     default:
-        Console.WriteLine(“Standard price: 45”)
+        Console.WriteLine("Standard price: 45")
         break;
 }
 ```
@@ -50,11 +50,11 @@ match userInput:
 ```
 Notice how the Match Case does not require a break statement – it is implicitly, internally called when the interpreter reaches the first matched case – other ones are being ignored. 
 
-If our code has a default case option – that is the option that executes if previous cases weren’t matched – we’d expect to use a default keyword for that, however Python neatly achieving the same using underscore char as a wildcard pattern “_” which here detects any input and proceeds as a default case.  
+If our code has a default case option – that is the option that executes if previous cases weren’t matched – we’d expect to use a default keyword for that, however Python neatly achieving the same using underscore char as a wildcard pattern "_" which here detects any input and proceeds as a default case.  
 
 ```python
     case _:
-        print(“This is the default case”)
+        print("This is the default case")
 ```
 We can use logical OR in the same line like this:
 
@@ -95,7 +95,7 @@ match self.engineType
 ```
 actually checks instance variable of the object of type class Car, in our example it checks an instance variable engineType of the object car1.
 
-Further possibility is to match multiple patterns, ie. primitives/object (arguments). This code declares method musicPlayer, which is called upon with three arguments, both of which is matched because of the asterisk “*” sign:
+Further possibility is to match multiple patterns, ie. primitives/object (arguments). This code declares method musicPlayer, which is called upon with three arguments, both of which is matched because of the asterisk "*" sign:
 
 ```python
 def musicPlayer(param):
