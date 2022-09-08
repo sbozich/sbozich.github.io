@@ -1,7 +1,7 @@
 ---
 title: Functions and scopes in Python, Part 2
 categories: [python, functional programming]
-tags: [python, yield, lambda]
+tags: [python, functions, scopes, def, return, nonlocal, global]
 ---
 
 
