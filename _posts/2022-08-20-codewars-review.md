@@ -20,7 +20,7 @@ From the official documentation, Codewars is a “platform that helps you learn,
 ![Figure 2: Screenshot of my Codewars profile](https://sbozich.github.io/assets/20082202.jpeg) _Figure 2: Screenshot of my Codewars profile_
 
 ## Pros 
-1. It is all about algorithms and data structures. 
+<b>It is all about algorithms and data structures. </b>
 
 Down to the core, coding is resourceful using of various algorithms and appropriate data structures. Reading the theory or watching live or video presentations of others explaining it is certainly good but not good enough to master the skill. Only when you do it itself through repeating, trial and error and correcting your mistakes you will progress. So, when user solves a particular challenge on Codewars he/she can’t see the solutions: in order to gain the points, user must successfully pass the tests which is considered the solving of the problem. Problems may range in complexity, but they all include using one or more algorithms, loops, conditional statements, maybe recursion, regex and so on. In fact, you are free to use whatever you want from the toolbox of the particular programming language in order to pass the tests. When it comes to data structures, you’ll obviously use everything that can solve the problem, including arrays, lists, dictionaries, maps, sets and whatever not. You will perform conversions of various data types, transform data structures, manipulate them in resourceful ways and you will learn A LOT about structures’ mutability, data types, possible uses and limitations, best practices, fastest algorithms and much more. That is true for the more advanced developers as well: regardless of the knowledge you may already possess, you WILL be challenged (Bjarne Stroustrup excluded). 
 
