@@ -32,7 +32,7 @@ function(a,b):
 	return a+b
 ```
 
-In Python, the def can be seen as assignment (=) as it assigns a name to the code block within. So, it can be used everywhere where it is possible to assign a variable (more precisely a name, because Python uses names referenced to underlying objects). Therefore, functions can be assigned within the particular module, or inside an if statement (but not inside an iteration statement: for that purposes a lambda can be utilized which will be explained in the <a href="https://sbozich.github.io/posts/functions-scopes-python-pt1/" target="_blank">part 2</a> of the article as well). 
+In Python, the def can be seen as assignment (=) as it assigns a name to the code block within. So, it can be used everywhere where it is possible to assign a variable (more precisely a name, because Python uses names referenced to underlying objects). Therefore, functions can be assigned within the particular module, or inside an if statement (but not inside an iteration statement: for that purposes a lambda can be utilized which will be explained in the <a href="https://sbozich.github.io/posts/functions-scopes-python-pt2/" target="_blank">part 2</a> of the article as well). 
 
 A function can be assigned to a separate variable, for instance:
 
