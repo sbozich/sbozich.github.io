@@ -42,11 +42,13 @@ Python uses number of matching rules when differentiating passed arguments. Thos
     func(1,2,3,4) # 1,2,3,4
     ```
     ** feature works for keywords and collect them into a new dictionary:
+
     ```python
     def func(**args):
         print(args)
 
     func(x=5, y=10) # {'x': 5, 'y': 10}
+    ```
 -	varargs unpacking. Passing arbitrarily number of positional or keyword arguments
 
     ```python
