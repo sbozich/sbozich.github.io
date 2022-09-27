@@ -71,8 +71,8 @@ Python uses number of matching rules when differentiating passed arguments. Thos
     ```
 -	keyword only: arguments that must be passed by name
     ```python
-        def func(a, *b, c):
-            print(a, b, c)
+    def func(a, *b, c):
+        print(a, b, c)
 
     func(1,2,3) """ TypeError: func() missing 1 required keyword-only argument: 'c'"""
     func(1,2,c=3) #1 (2,) 3
