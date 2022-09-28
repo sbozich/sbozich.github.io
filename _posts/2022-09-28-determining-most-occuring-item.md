@@ -32,7 +32,7 @@ print(top5)
 ```
 Output:
 ```
-# [('spending', 4), ('most', 4), ('our', 4), ('lives', 4), ('Living', 4)]
+[('spending', 4), ('most', 4), ('our', 4), ('lives', 4), ('Living', 4)]
 ```
 Python has a solution in a form of embedded collections.Counter class which does exactly what we are looking for. The method most_common() returns the most frequent occurences. It can count any sequence of hashable input items, since a Counter class is a dictionary itself that maps the items to the number of occurences.
 
