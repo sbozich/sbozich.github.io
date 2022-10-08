@@ -75,4 +75,4 @@ This would be insecure:
 cursor=db.cursor()
 cursor.execute("SELECT flour FROM Food WHERE price <10 ")
 ```
-Because the variable is encoded separately in a list or tuple, it can't be changed by manipulating SQL code, and the characters are excaped properly, using triple quotes (""") as well as the comma character instead a %. Of course, there are a lot of other ways to prevent SQL injections but maybe the best ones are done when writing the code.
+Because the variable is encoded separately in a list or tuple, it can't be changed by manipulating SQL code, and the characters are excaped properly, using triple quotes (&quot;&quot;&quot;) as well as the comma character instead a %. Of course, there are a lot of other ways to prevent SQL injections but maybe the best ones are done when writing the code.
