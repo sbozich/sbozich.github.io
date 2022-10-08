@@ -1,5 +1,5 @@
 ---
-title: Connecting Python to MySQL and tipps to avoid SQL injection attacks
+title: Connecting Python to MySQL and tips to avoid SQL injection attacks
 categories: [python, mysql, database]
 tags: [python, databases, mysql, injection attack, security]
 ---
