@@ -6,13 +6,13 @@ tags: [retro, hardware, thinkpad]
 
 ![Lenovo Thinkpad X201](https://sbozich.github.io/assets/091022&#32;(1).jpg) _Lenovo Thinkpad X201_
 
-A blast from the past, a machine that has been in active service for staggering 12 years and still rocking is certainly worth reviewing of. It is a 2010. fine specimen of the ultra-portable X-series line, which traces its roots back to the year 2000. when IBM introduced the <a href="https://www.pcnineoneone.com/reviews/hw/ibmtpx20-1.html" target="_blank">X20</a>. Thinkpads need no introduction, as they are iconic machines that set standard some 30 years ago, as a complete desktop-replacement solution which was able to mimic the look and feel, as well as performance, of a classic desktop PC - which was unheard for the era.
+A blast from the past, a machine that has been in active service for staggering 12 years and still rocking is certainly worth reviewing of. It is a 2010 fine specimen of the ultra-portable X-series line, which traces its roots back to the year 2000. when IBM introduced the <a href="https://www.pcnineoneone.com/reviews/hw/ibmtpx20-1.html" target="_blank">X20</a>. Thinkpads need no introduction, as they are iconic machines that set standard some 30 years ago, as a complete desktop-replacement solution which was able to mimic the look and feel, as well as performance, of a classic desktop PC - which was unheard for the era.
 
 ![Lenovo Thinkpad X201](https://sbozich.github.io/assets/091022&#32;(2).jpg) _&#32;_
 
 ## Overview
 
-This particular model was introduced in 2010. (see initial review <a href="https://www.notebookcheck.net/Review-Lenovo-ThinkPad-X201-Notebook.33743.0.html" target="_blank">here</a>). It originally sported a mobile version of the first i5 generation, coupled with a 4 GB RAM and usual suspects like radio module (Bluetooth 2.1 and a WiFi 4 a/g/n adapter). It has a 3G module as well, which was an optional feature. Surprisingly enough, it has a modem (trully blast from the past!)
+This particular model was introduced in 2010 (see initial review <a href="https://www.notebookcheck.net/Review-Lenovo-ThinkPad-X201-Notebook.33743.0.html" target="_blank">here</a>). It originally sported a mobile version of the first i5 generation, coupled with a 4 GB RAM and usual suspects like radio module (Bluetooth 2.1 and a WiFi 4 a/g/n adapter). It has a 3G module as well, which was an optional feature. Surprisingly enough, it has a modem (trully blast from the past!)
 
 ![Lenovo Thinkpad X201](https://sbozich.github.io/assets/091022&#32;(3).jpg) _&#32;_
 
@@ -20,7 +20,7 @@ The initial asking price in Europe was 1500-1800 EUR (depending on the configura
 
 ![Lenovo Thinkpad X201](https://sbozich.github.io/assets/091022&#32;(4).jpg) _&#32;_
 
-I bought it refurbished in 2014. At the time I just discarded my old Thinkpad T60 (which was legend itself back in the time) and needed something newer - dual-core hyperthreading CPU was fine. The X201 came with a preinstalled Windows 7, 160 GB HDD, and a wiggly radio adapter which soon stopped working.
+I bought it refurbished in 2014 At the time I just discarded my old Thinkpad T60 (which was legend itself back in the time) and needed something newer - dual-core hyperthreading CPU was fine. The X201 came with a preinstalled Windows 7, 160 GB HDD, and a wiggly radio adapter which soon stopped working.
 
 ![Lenovo Thinkpad X201](https://sbozich.github.io/assets/091022&#32;(5).jpg) _&#32;_
 
@@ -28,7 +28,7 @@ As I recall, the BIOS came locked-out, meaning I could enter it and see the conf
 
 ![Lenovo Thinkpad X201](https://sbozich.github.io/assets/091022&#32;(6).jpg) _&#32;_
 
-As Windows 7 was relatively snappy with 4 GB RAM, the significant limiting factor was a spinning hard drive. Somewhere around 2016. I upgraded it with a SSD, which brought new life into this small machine. Although X201 supports only SATA II interface (max. 3 GB/s), the performance gain is vastly improved due to much shorter random seek-time in comparison to mechanical disk.
+As Windows 7 was relatively snappy with 4 GB RAM, the significant limiting factor was a spinning hard drive. Somewhere around 2016 I upgraded it with a SSD, which brought new life into this small machine. Although X201 supports only SATA II interface (max. 3 GB/s), the performance gain is vastly improved due to much shorter random seek-time in comparison to mechanical disk.
 
 ![Lenovo Thinkpad X201](https://sbozich.github.io/assets/091022&#32;(7).jpg) _&#32;_
 
