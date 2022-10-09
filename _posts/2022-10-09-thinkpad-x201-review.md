@@ -6,7 +6,7 @@ tags: [retro, hardware, thinkpad]
 
 ![Lenovo Thinkpad X201](https://sbozich.github.io/assets/091022&#32;(1).jpg) _Lenovo Thinkpad X201_
 
-A blast of the past, a machine that has been in active service for staggering 12 years and still rocking is certainly worth reviewing of. It is a 2010. fine specimen of the ultra-portable X-series line, which traces its roots back to the year 2000. when IBM introduced X20. Thinkpads need no introduction, as they are iconic machines that set standard some 30 years ago, as a complete desktop-replacement solution which were able to mimic the look and feel, as well as performance, of a classic desktop PC - which was unheard for the era.
+A blast from the past, a machine that has been in active service for staggering 12 years and still rocking is certainly worth reviewing of. It is a 2010. fine specimen of the ultra-portable X-series line, which traces its roots back to the year 2000. when IBM introduced X20. Thinkpads need no introduction, as they are iconic machines that set standard some 30 years ago, as a complete desktop-replacement solution which were able to mimic the look and feel, as well as performance, of a classic desktop PC - which was unheard for the era.
 
 ![Lenovo Thinkpad X201](https://sbozich.github.io/assets/091022&#32;(2).jpg) _&#32;_
 
