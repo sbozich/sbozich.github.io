@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-<b>Sinisa Bozic, BEc, BCS, MBA</b>
+<b>Sinisa Bozic, BCS, BEc, MBA</b>
 
 ## Bachelor of Computer Science
 
