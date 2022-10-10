@@ -16,4 +16,6 @@ Because we live in a resource-limited world, optimization is necessary.
 
 ## Will finish this section, as soon as I complete the rest of the site
 
+test
+![Bachelor diploma](https://sbozich.github.io/assets/about/01Bachelor.pdf)
 
