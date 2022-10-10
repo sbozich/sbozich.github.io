@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-<b>Sinisa Bozic, BCS, BEc, MBA</b>
+<b>Sinisa Bozic, BCS, BEc, MBA</b>, <a href="mailto: newbraveworld@zohomail.eu" target="_blank"> E-Mail</a>
 
 ## Bachelor of Computer Science
 
@@ -20,11 +20,11 @@ I passed the <a href="https://sbozich.github.io/assets/about/13Microsoft070620.p
 
 Back in time, have invested in higher education in Economics and earned my <a href="https://sbozich.github.io/assets/about/01Bachelor.pdf" target="_blank">Bachelor degree</a>, which is <a href="https://sbozich.github.io/assets/about/02StatementofcomparabilityforforeignhighereducationqualificationsGermany.pdf" target="_blank">officialy recognized</a> in Germany as well.
 
-Surprisingly, that was not enough for me so I pursued and <a href="https://sbozich.github.io/assets/about/03MBA.pdf" target="_blank">successfully finished</a> MBA studies.
+Surprisingly, that was not enough for me so I pursued and successfully finished <a href="https://sbozich.github.io/assets/about/03MBA.pdf" target="_blank">MBA studies</a>.
 
 As an addition, I wrote a <a href="https://sbozich.github.io/assets/about/10Scientificarticlessummary.pdf" target="_blank">couple of scientific papers</a> as well.
 
-I almost enrolled the PhD studies but due to the lack of time and pursuit of other interests cancelled it. Here is a <a href="https://sbozich.github.io/assets/about/06LetterofRecommendationWilliamParrott.pdf" target="_blank">Letter of recommendation</a> issued to that purpose.
+I almost enrolled at the PhD studies but due to the lack of time and pursuit of other interests cancelled it. Here is a <a href="https://sbozich.github.io/assets/about/06LetterofRecommendationWilliamParrott.pdf" target="_blank">Letter of recommendation</a> issued to that purpose.
 
 ## My career
 I was a licensed <a href="https://sbozich.github.io/assets/about/11broker.pdf" target="_blank">stock broker</a>, an <a href="https://sbozich.github.io/assets/about/07BEFfund.pdf" target="_blank">investment consultant</a>, and a personal manager and recruiter specialized in Germany's labour market.
