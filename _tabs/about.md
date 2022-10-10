@@ -10,7 +10,7 @@ My passion started in 1996. when I was amazed by the new tech wave that was open
 
 Many years afterwards, I decided to study computer science and got my bachelors in the Autumn of 2022. (will be updated here on the diploma's arrival). 
 
-Currently pursue backend technologies like Python, C#, database stuff (MySQL and MS SQL), but am opened to other fields as well.
+Currently pursue and explore backend technologies like Python, C#, database stuff (MySQL and MS SQL), as well as some more broad topics like algorithms and database structures, but am opened to other fields as well.
 
 I passed the <a href="https://sbozich.github.io/assets/about/13Microsoft070620.pdf" target="_blank">Microsoft 070-620 exam</a> (configuring Windows Vista) and hold an <a href="https://sbozich.github.io/assets/about/12ECDL.pdf" target="_blank">ECDL certificate</a>.
 
