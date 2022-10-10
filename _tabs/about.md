@@ -4,6 +4,8 @@ icon: fas fa-info-circle
 order: 4
 ---
 
+<b>Sinisa Bozic, BEc, BCS, MBA</b>
+
 ## Bachelor of Computer Science
 
 My passion started in 1996. when I was amazed by the new tech wave that was opening new possibilities in the business, entertainment and telecommunications. Old enough though to remember 'good old times' when we used floppy disks, had no Internet, exchanged the software from hand to hand. 
