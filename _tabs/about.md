@@ -6,11 +6,11 @@ order: 4
 
 ## Bachelor of Computer Science
 
-My passion started in 1996. when I was amazed by the new tech wave that was opening new possibilities in the business, entertainment and telecomunications. Old enough though to remember 'good old times' when we used floppy disks, had no Internet, exchanged the software from hand to hand. 
+My passion started in 1996. when I was amazed by the new tech wave that was opening new possibilities in the business, entertainment and telecommunications. Old enough though to remember 'good old times' when we used floppy disks, had no Internet, exchanged the software from hand to hand. 
 
 Many years afterwards, I decided to study computer science and got my bachelors in the Autumn of 2022 (will be updated here on the diploma's arrival). 
 
-Currently pursue and explore backend technologies like Python, C#, database stuff (MySQL and MS SQL), as well as some more broad topics like algorithms and database structures, but am opened to other fields as well.
+Currently pursue and explore backend technologies like Python, C#, database stuff (MySQL and MS SQL), as well as some broader topics like algorithms and database structures, but am opened to other fields as well.
 
 I passed the <a href="https://sbozich.github.io/assets/about/13Microsoft070620.pdf" target="_blank">Microsoft 070-620 exam</a> (configuring Windows Vista) and hold an <a href="https://sbozich.github.io/assets/about/12ECDL.pdf" target="_blank">ECDL certificate</a>.
 
@@ -25,7 +25,7 @@ As an addition, I wrote a <a href="https://sbozich.github.io/assets/about/10Scie
 I almost enrolled the PhD studies but due to the lack of time and pursuit of other interests cancelled it. Here is a <a href="https://sbozich.github.io/assets/about/06LetterofRecommendationWilliamParrott.pdf" target="_blank">Letter of recommendation</a> issued to that purpose.
 
 ## My career
-I was a licenced <a href="https://sbozich.github.io/assets/about/11broker.pdf" target="_blank">stock broker</a>, an <a href="https://sbozich.github.io/assets/about/07BEFfund.pdf" target="_blank">investment consultant</a>, and a personal manager and recruiter specialized in Germany's labour market.
+I was a licensed <a href="https://sbozich.github.io/assets/about/11broker.pdf" target="_blank">stock broker</a>, an <a href="https://sbozich.github.io/assets/about/07BEFfund.pdf" target="_blank">investment consultant</a>, and a personal manager and recruiter specialized in Germany's labour market.
 
 I speak good <a href="https://sbozich.github.io/assets/about/08CambridgeC1.pdf" target="_blank">English</a> and <a href="https://sbozich.github.io/assets/about/09GoetheC1.pdf" target="_blank">German</a>, while my native language is Serbo-Croatian.
 
