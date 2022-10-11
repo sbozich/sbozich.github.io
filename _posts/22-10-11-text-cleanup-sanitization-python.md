@@ -1,6 +1,6 @@
 ---
-title: Text clean-up and sanitization with Python
-categories: [python, clean-up, sanitization]
+title: Text clean-up and string sanitization with Python
+categories: [python, clean-up, string sanitization]
 tags: [python, text parsing]
 ---
 
