@@ -137,5 +137,6 @@ print([(i,j) for i in range(10) if i%3==0 for j in range(4) if j%2==1 ])
 As we have seen, list comprehensions per se are not required syntactically, but their usage usually yields a performance advantage over the usual for loops. Due to the fact that they execute at the full C language speed (which is also true for the map iterations), they are in most cases significantly faster than for loop Python bytecode. 
 
 Yet, there is certainly a tradeoff between list comprehensions’ conciseness, performance gain and lowered readability, because they bring less verbose but as well less understandable statements. So, when used, list comprehensions should be kept simple and neat; for more complex tasks, full statements are preferred. There is a reason why the for loop is the usual way of doing most tasks; one should be aware of other ways too which is the purpose of this article.
- ## Conclusion
+## Conclusion
+
 List comprehension enables creation of effective and fast one-liners in Python which replace for loops. They are expressions, meaning they can be inserted in places where multiple lined and nested code couldn’t. Iteration through comprehension is widely used in practice, so if kept simple, it is a neat and elegant coding solution.
