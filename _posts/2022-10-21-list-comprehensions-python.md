@@ -139,5 +139,4 @@ As we have seen, list comprehensions per se are not required syntactically, but 
 Yet, there is certainly a tradeoff between list comprehensions’ conciseness, performance gain and lowered readability, because they bring less verbose but as well less understandable statements. So, when used, list comprehensions should be kept simple and neat; for more complex tasks, full statements are preferred. There is a reason why the for loop is the usual way of doing most tasks; one should be aware of other ways too which is the purpose of this article.
 
  ## Conclusion
-
 List comprehension enables creation of effective and fast one-liners in Python which replace for loops. They are expressions, meaning they can be inserted in places where multiple lined and nested code couldn’t. Iteration through comprehension is widely used in practice, so if kept simple, it is a neat and elegant coding solution. 
