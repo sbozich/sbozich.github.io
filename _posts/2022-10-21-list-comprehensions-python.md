@@ -42,9 +42,8 @@ List comprehensions are <b>optional</b>, they are not required by any feature of
 
 List comprehensions apply an arbitrary expression to iterated items, rather than applying set of lined statements or a function. Therefore, similar to lambda, they can be put to places where multiple-lines statements wouldn’t be allowed. Comprehensions are a general term as they can be applied not only to lists, but to sets and dictionaries as well (albeit they are most widely used with lists). Their formal syntax is:
 
-<i>
-[expression for target1 in iterable1 if condition1 for target2 in iterable2 if condition2…for targetN in iterableN if conditionN…]
-</i>
+![](https://sbozich.github.io/assets/22102201.jpg)
+
 
 ## Examples
 It almost seems as they form a mini-language itself, especially when coupled with an if statement:
