@@ -437,5 +437,6 @@ In order to develop a simple program like this, one should possess following kno
 *	finally, have a basic overview of Visual Studio in which the program is developed.
 
 Possible improvements:
-* improve user login (more secure way of handling and displaying login data) - current solution is prone to SQL injection attack.
+* improve user login via using trusted connection (without passing an user id and password) - current solution is prone to SQL injection attack,
+* use other way to connect to the database, without having the need to manually close the connection every time the data is fetched (open connections to the SQL server are security issues as well as performance hogs).
 
