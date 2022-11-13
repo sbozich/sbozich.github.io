@@ -62,7 +62,7 @@ Using Windows Sandbox in most cases is isolated from the host, yet there are two
 
     <b>Advice:</b> use online virus scan, just to be sure.
 
-2.	When it comes to networking, Windows Sandbox is protected by NAT (network address translation), preventing network devices to initiate access to it. However, in some cases there is possible to detect the subnet and therefore the network devices on the host system – enabling the scan for the opened ports on those devices, which pose a security risk. 
+2.	When it comes to networking, Windows Sandbox is protected by NAT (network address translation), preventing network devices to initiate access to it. However, in some cases there is possible to detect the subnet and therefore the network devices on the host system – enabling the scan for the opened ports on those devices, which poses a security risk. 
 
     <b>Hint:</b> for true isolated experience, disable the network adapter on Windows Sandbox when testing for malware.
 
