@@ -35,10 +35,10 @@ After the system restarts, Windows Sandbox appears in the Start Menu and it can 
 ## Features
 The Windows Sandbox is a live, clean-slate image derived from the host operating system. That means it sports the same Windows version as host and it is already updated to the same state (in stark contrast to the virtualized Windows system which doesn’t share any traits to the underlying OS). Some important aspects of Windows Sandbox are:
 
-*	it is a part of the Windows – no separate download is necessary (in respect to the Windows build requirement)
-*	It is a one-time session, meaning that it does not remember the state after the restart (for instance installed programs and copied files will disappear after the restart or closing down the program),
-*	it is isolated from the host – the changes done inside will not impact the host operating system (with some remarks later explained),
-•	it runs rather quick even on some older hardware.
+*	<b>It is a part of the Windows</b> – no separate download is necessary (in respect to the Windows build requirement)
+*	<b>It is a one-time session</b>, meaning that it does not remember the state after the restart (for instance installed programs and copied files will disappear after the restart or closing down the program),
+*	<b>It is isolated from the host</b> – the changes done inside will not impact the host operating system (with some remarks later explained),
+*	<b>It runs rather quick even on some older hardware</b>.
 
 ### Transferring content
 There are two possibilities to copy files from the host to the Windows Sandbox. The first option is usual copying through Copy (Ctrl+C) and Paste (Ctrl+V). Note that the files’ drag-and-drop is not supported. Other way is configuring a <b>shared folder</b> between host PC and Windows Sandbox which will be covered in a separate article.
@@ -48,16 +48,23 @@ There are two possibilities to copy files from the host to the Windows Sandbox. 
 
     Windows Sandbox is perfect companion when it comes to software testing. Fire it up, install the program, run it and play with it, change parameters, evaluate it. Once the Sandbox is closed, nothing escapes it – no harm done. It is perfect for power users, developers, testers.
 2.	Windows options exploration
+
     Inside Windows Sandbox, user can freely explore the myriad of Windows options (those options that do not require restart though), figure-out what they do, how they behave - all without fear of system failure. 
 3.	Browsing the Web
+
     Since Microsoft Edge comes preinstalled, user can freely surf the Internet without having to worry about cookies, ads and related stuff that may impact the system. Inside Windows Sandbox, there is no need to clear cookies ever.
     Note that the Internet connectivity within Windows Sandbox does not work if VPN on host system enabled.
 
 ## Security
 
 Using Windows Sandbox in most cases is isolated from the host, yet there are two potential security issues with it:
-1.	Windows Sandbox by default utilizes Windows Defender antivirus, which offers decent protection against malware. Due to the temporary nature of Windows Sandbox itself, the proper antivirus suite can’t be installed so the user is limited to a Windows Defender, which lacks some security features like behavioral analysis needed to detect zero-day (unpatched) threats. In that way, user can wrongly assume that the file is safe and use it on the host system, thus endangering the host and the network. Advice: use online virus scan, just to be sure.
-2.	When it comes to networking, Windows Sandbox is protected by NAT (network address translation), preventing network devices to initiate access to it. However, in some cases there is possible to detect the subnet and therefore the network devices on the host system – enabling the scan for the opened ports on those devices, which pose a security risk. Hint: for true isolated experience, disable the network adapter on Windows Sandbox when testing for malware.
+1.	Windows Sandbox by default utilizes Windows Defender antivirus, which offers decent protection against malware. Due to the temporary nature of Windows Sandbox itself, the proper antivirus suite can’t be installed so the user is limited to a Windows Defender, which lacks some security features like behavioral analysis needed to detect zero-day (unpatched) threats. In that way, user can wrongly assume that the file is safe and use it on the host system, thus endangering the host and the network. 
+
+    <b>Advice:</b> use online virus scan, just to be sure.
+
+2.	When it comes to networking, Windows Sandbox is protected by NAT (network address translation), preventing network devices to initiate access to it. However, in some cases there is possible to detect the subnet and therefore the network devices on the host system – enabling the scan for the opened ports on those devices, which pose a security risk. 
+
+    <b>Hint:</b> for true isolated experience, disable the network adapter on Windows Sandbox when testing for malware.
 
 ## Conclusion
 Windows Sandbox is a neat useful Windows feature which gives the look and feel of the fresh, unbloated system. Being very handy to use, it can give additional value to the user experience and a boost in productivity and security.
