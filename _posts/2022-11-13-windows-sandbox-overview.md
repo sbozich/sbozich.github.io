@@ -4,7 +4,7 @@ categories: [windows, sandbox]
 tags: [operating systems, virtual machines]
 ---
 
-Over the time, Windows 10 got some useful features that are not always obvious or even enabled. Many users are not even aware of their existence. It turns out that the Windows for some time now sports a fully-fledged virtualization engine (called Hyper-V) and an instant-sandbox called simply Windows Sandbox. In this article we will take a closer look at the Windows Sandbox, to see what it is all about.
+Over the time, Windows 10 got some useful features that are not always obvious or even enabled. Many users are not even aware of their existence. When it comes to productivity, it turns out that the Windows for some time sports a fully-fledged virtualization engine (called Hyper-V) and an instant-sandbox called simply Windows Sandbox. In this article we will take a closer look at the Windows Sandbox, to see what it is all about.
 
 ## What it is
 
