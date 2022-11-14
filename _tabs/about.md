@@ -29,6 +29,8 @@ I almost enrolled at the PhD studies but due to the lack of time and pursuit of 
 ## My career
 I was a licensed <a href="https://sbozich.github.io/assets/about/11broker.pdf" target="_blank">stock broker</a>, an <a href="https://sbozich.github.io/assets/about/07BEFfund.pdf" target="_blank">investment consultant</a>, and a personal manager and recruiter specialized in Germany's labour market.
 
+When it comes to IT roles, I worked two years as a 1st and 2nd level customer support specialist.
+
 I speak good <a href="https://sbozich.github.io/assets/about/08CambridgeC1.pdf" target="_blank">English</a> and <a href="https://sbozich.github.io/assets/about/09GoetheC1.pdf" target="_blank">German</a>, while my native language is Serbo-Croatian.
 
 ## Miscellaneous
