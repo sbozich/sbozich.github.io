@@ -41,7 +41,7 @@ The Windows Sandbox is a live, clean-slate image derived from the host operating
 *	<b>It runs rather quick even on some older hardware</b>.
 
 ### Transferring content
-There are two possibilities to copy files from the host to the Windows Sandbox. The first option is usual copying through Copy (Ctrl+C) and Paste (Ctrl+V). Note that the files’ drag-and-drop is not supported. Other way is configuring a <b>shared folder</b> between host PC and Windows Sandbox which will be covered in a separate article.
+There are two possibilities to copy files from the host to the Windows Sandbox. The first option is usual copying through Copy (Ctrl+C) and Paste (Ctrl+V). Note that the files’ drag-and-drop is not supported. Other way is configuring a <b>shared folder</b> between host PC and Windows Sandbox which is covered <a href="https://sbozich.github.io/posts/adding-functionality-windows-sandbox/"  target="_blank">here</a>.
 
 ## Usability
 1.	Software testing
