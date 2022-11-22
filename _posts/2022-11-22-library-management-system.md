@@ -1,10 +1,10 @@
 ---
-title: C# Mini Project - Library Management System program detailed overview
-categories: [C#, sql server]
-tags: [C#, databases, windows forms, visual studio]
+title: c# Mini Project - Library Management System program detailed overview
+categories: [c#, sql server]
+tags: [c#, databases, windows forms, visual studio]
 ---
 
-In this mini <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">project</a>, we will be creating a program in C# which serves as a Library Management System, enabling the basic functions of one such system. In particular, there are separate records of a books, books’ categories, authors, publishers, library members, as well as the records on book issues and returns. It is in fact a Windows Forms GUI program connected to the underlying database in MS SQL Server which uses similar logic as the <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">Car Rental</a> program.
+In this mini <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">project</a>, we will be creating a program in c# which serves as a Library Management System, enabling the basic functions of one such system. In particular, there are separate records of a books, books’ categories, authors, publishers, library members, as well as the records on book issues and returns. It is in fact a Windows Forms GUI program connected to the underlying database in MS SQL Server which uses similar logic as the <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">Car Rental</a> program.
 
 ![](https://github.com/sbozich/Library-Management-System/raw/main/Showcase.gif) 
 
@@ -36,7 +36,7 @@ The program holds a number of .cs files, each for the previously created databas
 
 Those classes are similar to each other, in fact, in terms of both GUI elements and underlying code they consist of the same elements. In particular, they have in common DataGridView, ComboBox, TextBox elements and corresponding buttons for adding/updating the data. On the coding side, they all connect to the database, displaying its contents in aforementioned Windows Forms elements. The database can be updated as well. The database connectivity is ensured through the following code:
 
-```C#
+```c#
 SqlConnection con = new SqlConnection("Data source=DESKTOP-N5IF2SJ\\SQLEXPRESS; Initial Catalog=slibrary; Integrated Security=true;");
 ```
 
@@ -44,13 +44,13 @@ As in the Car Rental example, the classes itself are consisting of multiple meth
 
 Connection string:
 
-```C#
+```c#
 SqlConnection con = new SqlConnection("Data source=DESKTOP-N5IF2SJ\\SQLEXPRESS; Initial Catalog=slibrary; Integrated Security=true;");
 ```
 
 load() method:
 
-```C#
+```c#
 public void load()
         {
             sql = "select * from category";
@@ -71,7 +71,7 @@ public void load()
 
 getid(string id) method:
 
-```C#
+```c#
 public void getid(string id)
         {
             sql = "select * from category where id= '" + id + "'";
@@ -90,7 +90,7 @@ public void getid(string id)
 
 button1 click event:
 
-```C#
+```c#
 private void button1_Click(object sender, EventArgs e)
         {
             string catname = txtname.Text;
@@ -133,7 +133,7 @@ private void button1_Click(object sender, EventArgs e)
 
 datagridview click event:
 
-```C#
+```c#
 private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.ColumnIndex==dataGridView1.Columns["edit"].Index && e.RowIndex>=0)
@@ -172,7 +172,7 @@ private void dataGridView1_CellContentClick(object sender, DataGridViewCellEvent
 
 The class lendbook.cs is similar to previous, the new elements are issuing and return date elements. Nothing is computed here but passed to the database. The calculation of the days is done in the returnbook.cs class: similar to the Car Rental project, the calculation is done in SQL and passed back to the program:
 
-```C#
+```c#
 cmd = new SqlCommand("select book,issuedate,returndate,DATEDIFF(dd,returndate,GETDATE())as elap from issuebook where memberid='"+ txtmid.Text+ "'",con);
 ```
 
