@@ -38,4 +38,11 @@ Among the customizable options, most useful one is probably the possibility of d
 
 After that, just run the created file and in desktop on virtual machine you’ll find the mounted shared folder. There are some additional options which are presented in detail <a href="https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-sandbox/windows-sandbox-configure-using-wsb-file"  target="_blank">here</a>.
 
+There is possibility to configure some settings in Windows Sandbox by using other means like adding the files manually and editing the registry, as described <a href="https://www.systanddeploy.com/2021/08/how-to-customize-default-windows.html" target="_blank">here</a>.
+
+## Conclusion
+
+Although it is possible to add some functionality to Windows Sandbox by using aforementioned means, its configurability is still very limited especially when compared to some other third party solutions, like <a href="https://sandboxie-plus.com/" target="_blank">Sandboxie</a>. Yet, since Windows Sandbox is included in the Windows itself, it is worth modding it a bit to better suit user's needs.
+
+
 
