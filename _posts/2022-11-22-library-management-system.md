@@ -1,5 +1,5 @@
 ---
-title: c# Mini Project - Library Management System program detailed overview
+title: C# Mini Project - Library Management System program detailed overview
 categories: [c#, sql server]
 tags: [c#, databases, windows forms, visual studio]
 ---
