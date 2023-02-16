@@ -81,7 +81,7 @@ Portability is average: ideally, you’d want a 14” laptop or less when carryi
 
 ## Conclusion
 
-Although it is a decent machine in most departments, even if it would have had a full-speed NVMe drive I wouldn’t have bought it for the single reason that it does not have USB-C (meaning, you can ditch the original charger and just use your phone’s one to charge it – one thing less in the backpack!). Another thing is crappy touchpad which means that an average user will probably have to carry around external mouse. Third thing, if you are constantly on the move, you’d be better-off with a lower-screened laptop which you can hook-up to larger external screen if needed. If you can live with those things, or if you don’t require much portability, this machine is a decent choice especially if it sits on the desk and doesn’t move often. I am ditching it as it collects dust sitting on the shelf across my mighty reliable desktop PC.
+Although it is a decent machine in most departments, even if it would have had a full-speed NVMe drive I wouldn’t have bought it for the single reason that it does not have USB-C (meaning, you can ditch the original charger and just use your phone’s one to charge it – one thing less in the backpack!). Another thing is crappy touchpad which means that an average user will probably have to carry around external mouse. Third thing, if you are constantly on the move, you’d be better-off with a lower-screened laptop which you can hook-up to larger external screen if needed. If you can live with those things, or if you don’t require much portability, this machine is a solid choice especially if it sits on the desk and doesn’t move often. 
 
 **Update 16th of February 2023:**
 
