@@ -22,7 +22,7 @@ The RAM memory is NOT soldered and there are two slots, according to specs sheet
 
 ![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112304.jpg) 
 
-The machine is not an ultrabook, but it is reasonably thin, so some scarcity of ports is expected. I supposed there will be an USB-C, but it is somehow missing (meaning no charging via phone charger and no video output through it), but there are 3 USB ordinary ports (type A), of which two are 3.1, third is 2.0 (all support only data transfer, no charging). Which means, laptop can’t charge other devices through USB and it can’t be charged through it. There is standard LAN port which is a fine addition (usually missing on newer laptops), a HDMI a/v out (standard size, not mini), usual headphone/mic combo connector and SD card reader. Basics are covered, nothing more, nothing less.
+The machine is not an ultrabook, but it is reasonably thin, so some scarcity of ports is expected. I supposed there will be an USB-C, but it is somehow missing (meaning no charging via phone charger and no video output through it), but there are 3 USB ordinary ports (type A), of which two are 3.1, third is 2.0 (all support only data transfer, no charging). Which means, laptop can’t charge other devices through USB and it can’t be charged through it. There is standard LAN port which is a fine addition (usually missing on newer laptops), a HDMI a/v out (standard size, not mini), usual headphone/mic combo connector and SD card reader. Kensington lock is present as well, should you need it. Basics are covered, nothing more, nothing less.
 
 ## Battery
 
