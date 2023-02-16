@@ -4,7 +4,7 @@ categories: [c#, sql server]
 tags: [c#, databases, windows forms, visual studio]
 ---
 
-In this mini <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">project</a>, we will be creating a program in c# which serves as a Library Management System, enabling the basic functions of one such system. In particular, there are separate records of a books, books’ categories, authors, publishers, library members, as well as the records on book issues and returns. It is in fact a Windows Forms GUI program connected to the underlying database in MS SQL Server which uses similar logic as the <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">Car Rental</a> program.
+In this mini <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">project</a>, we will be creating a program in C# which serves as a Library Management System, enabling the basic functions of one such system. In particular, there are separate records of a books, books’ categories, authors, publishers, library members, as well as the records on book issues and returns. It is in fact a Windows Forms GUI program connected to the underlying database in MS SQL Server which uses similar logic as the <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">Car Rental</a> program.
 
 ![](https://github.com/sbozich/Library-Management-System/raw/main/Showcase.gif) 
 
