@@ -12,7 +12,7 @@ Some 18 months ago I got as a present a 15,6-inch HP laptop. Didn’t need a lap
 
 ## Specifications
 
-Specs-wise, I was surprised when realized that the machine sports an AMD-processor. To be precise, it is an AMD Ryzen 5 3500U quad-core with HT (8 threads) with discrete GPU Radeon Vega 8, with 15W TDP 15W and 12nm lithography. That puts it somewhere in the lower-middle place on the market reserved for ultrabooks, mini PCs and budget laptops. There is 8 GB DDR4-2400 SDRAM (one piece, hence one-channel) and main storage 256 GB PCIe NVMe M.2 SSD. Sounds decent, although a bit tight. Given the tendency of soldering everything to the motherboard, I expected little-to-none upgrades possible; out of curiosity I immediately voided warranty (could afford being reckless as I have plenty of alternative PCs lying around) and unscrewed the back cover of machine to see the internals:
+Specs-wise, I was surprised when realized that the machine sports an AMD-processor. To be precise, it is an AMD Ryzen 5 3500U quad-core with HT (8 threads) with discrete GPU Radeon Vega 8, with 15W TDP and 12nm lithography. That puts it somewhere in the lower-middle place on the market reserved for ultrabooks, mini PCs and budget laptops. There is 8 GB DDR4-2400 SDRAM (one piece, hence one-channel) and main storage 256 GB PCIe NVMe M.2 SSD. Sounds decent, although a bit tight. Given the tendency of soldering everything to the motherboard, I expected little-to-none upgrades possible; out of curiosity I immediately voided warranty (could afford being reckless as I have plenty of alternative PCs lying around) and unscrewed the back cover of machine to see the internals:
 
 ![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112303.jpg) 
 
