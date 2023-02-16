@@ -61,8 +61,13 @@ As usual, main CPU is soldered and not replaceable so you’re stuck with what y
 
 The machine internal heat management is good – there is no significant heating and the thing stays reasonably cool for a prolonged period of time. The fan runs reasonably quiet and is tolerable even when on full speed.  I have no complaints in terms of peripherals and miscellaneous equipment – speakers, webcam and connectivity work as supposed. Nice thing is that the wireless is 802.11 ac meaning 5 GHz networks are supported.
 
+![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112306.jpg) 
+![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112307.jpg)
+
 With weight of 1.8 kg (charger excluded), it is somewhat heavier than ultrabooks – but if you want 0,3-0,4 kg reduce in weight with the same specs prepare to pay at least twice as much as this laptop costs! The weight is manageable, it is significantly lower than 2 kg and it is well balanced over the laptop’s area. I measured 1,75 kg without and 2,05 kg with the charger, respectively. The build quality is decent, there are occasional, rare squeaks which is expected given the thin plastic’s body which seems durable. 
-STAVITI SLIKU LAPTOPA U DVA RUKSAKA
+
+![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112308.jpg)
+![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112309.jpg)
 
 Portability is average: ideally, you’d want a 14” laptop or less when carrying around, but the additional screen-estate you get with this display is worth if you want portable desktop replacement. It will fit in most backpacks though.
 
