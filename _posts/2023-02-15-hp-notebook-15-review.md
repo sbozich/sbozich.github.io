@@ -64,7 +64,7 @@ The machine internal heat management is good – there is no significant heating
 ![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112306.jpg) 
 ![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112307.jpg)
 
-With weight of 1.8 kg (charger excluded), it is somewhat heavier than ultrabooks – but if you want 0,3-0,4 kg reduce in weight with the same specs prepare to pay at least twice as much as this laptop costs! The weight is manageable, it is significantly lower than 2 kg and it is well balanced over the laptop’s area. I measured 1,75 kg without and 2,05 kg with the charger, respectively. The build quality is decent, there are occasional, rare squeaks which is expected given the thin plastic’s body which seems durable. 
+Weighing 1.8 kg (charger excluded), it is somewhat heavier than ultrabooks – but if you want 0,3-0,4 kg weight reduce with the same specs prepare to pay at least twice as much as this laptop costs! The weight is manageable though, it is significantly lower than 2 kg and it is well balanced over the laptop’s area. I measured 1,75 kg without and 2,05 kg with the charger, respectively. The build quality is decent, there are occasional, rare squeaks which is expected given the thin plastic’s body which seems durable. 
 
 ![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112308.jpg)
 ![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112309.jpg)
