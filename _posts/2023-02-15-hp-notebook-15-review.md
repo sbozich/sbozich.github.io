@@ -50,7 +50,6 @@ The system supports the NVMe SSD and 256 GB unit is installed. The disk benchmar
 The BIOS isn’t configurable so the user can’t change anything of importance in it. This is a serious drawback and puts HP on the throne of shame, as the disk transfer rates of such kind are now 15 years old.
 
 Going further, 8 GB of RAM is on the lower edge, especially given the fact that the GPU RAM takes 2 GB of it, so user has only the 6 GB at disposal. For the light, office use, browsing and similar tasks it’ll do the job, however, forget anything more demanding. Expansion to the 16 GB will prove a bit difficult, since one should buy the same memory module which is impossible to find on the market (two same modules would avoid eventual memory issues), so the most probable solution would be acquiring a 2*8 GB modules of DDR4 laptop RAM, which amount to 10% of the laptop’s worth. There is a possibility of replacing SSD as the faster ones are readily available, and, technically, it is possible to add another 2.5” HDD/SSD, however HP complicated things here and didn’t provide the connector which must be manually bought and installed. To be precise, three parts are actually needed:
-However, you will need these parts which can be difficult to find
 
 * Hard drive bracket, part number L20455-001 (here you could also use some strong double-sided foamy tape instead)
 
