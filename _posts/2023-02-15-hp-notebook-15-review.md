@@ -57,7 +57,7 @@ Going further, 8 GB of RAM is on the lower edge, especially given the fact that 
 
 * Hard drive/solid-state drive cable, part number L20456-001
 
-NVMe can also be upgraded to a larger one, which is probably a best option when it comes to storage expansion. 
+NVMe can also be upgraded to a larger one, which is probably best option when it comes to storage expansion. 
 
 ## Performance
 
