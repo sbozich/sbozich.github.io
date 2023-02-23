@@ -1,5 +1,5 @@
 ---
-title: Review of the book - "A Smarter Way To Learn Python"
+title: Review of the book - A Smarter Way To Learn Python
 categories: [books, python]
 tags: [python, books]
 ---
