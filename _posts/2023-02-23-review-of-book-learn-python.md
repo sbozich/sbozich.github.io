@@ -21,7 +21,7 @@ In total, there are 77 lessons or chapters as the author calls them, which could
 *	<b>functions (10 chapters)</b>,
 *	<b>classes and OOP (9 chapters)</b>,
 *	<b>working with external data (15 chapters)</b>, including CSV and JSON files,
-*	</b>debugging and general information topics (3 chapters)</b>.
+*	<b>debugging and general information topics (3 chapters)</b>.
 
 In addition, through 5 appendixes, some preparatory topics like Python installation, running and saving programs are explained too. 
 
@@ -33,39 +33,39 @@ What will you learn from the book are the basic concepts; you will get informati
 
 There are no projects in this book, which is also to expect. Instead, through the exercises after the each lesson, the user is pointed to the book’s accompanying website. There are numerous quiz-like exercises where user can type simpler commands and the page checks its validity. There are no review exercises so every exercise is mapped to the particular chapter in the book. Some examples of the questions are, taken in a random order:
 
-* <i>What is the keyword for adding a new element to the end of a list?
+* <i>What is the keyword for adding a new element to the end of a list?</i>
 
-* Eliminate the element with an index of 2 from a list whose name is products.
+* <i>Eliminate the element with an index of 2 from a list whose name is products.</i>
 
-* Rewrite this so you can make changes to the elements.
+* <i>Rewrite this so you can make changes to the elements.</i>
 
     ```Python
     sizes = ("sm", "med", "lg", "xl")
     ```
 
-* Targeting the correct element in the following list, assign "fi" to the variable giant_syllable.
+* <i>Targeting the correct element in the following list, assign "fi" to the variable giant_syllable.</i>
 
     ```Python
     giant_speak = ["fee", "fi", "fo", "fum"]
     ```
 
-* Delete a dictionary item whose key is an integer. Make everything up.
+* <i>Delete a dictionary item whose key is an integer. Make everything up.
 
-* In the following code, what is the value of total if the function call doesn't pass any arguments?
+* <i>In the following code, what is the value of total if the function call doesn't pass any arguments?</i>
 
     ```Python 
     def add_numbers(first_number = 2, second_number = 4):
     total = first_number + second_number
     ```
   
-* This is the first line of a function definition. When optional arguments are passed, they're assigned to x, which is a ____________.
+* <i>This is the first line of a function definition. When optional arguments are passed, they're assigned to x, which is a ____________.</i>
     ```Python
     def fill_dictionary(new_customer, first_name, last_name, **x):
     ```
 
-* Code the first two lines of a function. Line 2 begins the definition of a class. Make everything up.
+* <i>Code the first two lines of a function. Line 2 begins the definition of a class. Make everything up.</i>
 
-* Create an instance of this class. The name of the instance is geneva. The value is 144.
+* <i>Create an instance of this class. The name of the instance is geneva. The value is 144.</i>
 
     ```Python
     class Lake():
@@ -73,7 +73,7 @@ There are no projects in this book, which is also to expect. Instead, through th
         self.depth = depth
     ```
 	
-* Complete the fourth line.
+* <i>Complete the fourth line</i>.
 
     ```Python
     1 with open("cats.csv") as f:
@@ -81,7 +81,7 @@ There are no projects in this book, which is also to expect. Instead, through th
     3   cats_list = []
     4   for each_line in ___________
     ```
-</i>
+
 
 In the end, after the book’s completion the reader will have a fair comprehension of basic Python’s features. From that point there are two possible learning paths:
 
