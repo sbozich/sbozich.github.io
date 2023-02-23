@@ -12,7 +12,7 @@ Some 18 months ago I got as a present a 15,6-inch HP laptop. Didn’t need a lap
 
 ## Specifications
 
-Specs-wise, I was surprised when realized that the machine sports an AMD-processor. To be precise, it is an AMD Ryzen 5 3500U quad-core with HT (8 threads) with discrete GPU Radeon Vega 8, with 15W TDP 15W and 12nm lithography. That puts it somewhere in the lower-middle place on the market reserved for ultrabooks, mini PCs and budget laptops. There is 8 GB DDR4-2400 SDRAM (one piece, hence one-channel) and main storage 256 GB PCIe NVMe M.2 SSD. Sounds decent, although a bit tight. Given the tendency of soldering everything to the motherboard, I expected little-to-none upgrades possible; out of curiosity I immediately voided warranty (could afford being reckless as I have plenty of alternative PCs lying around) and unscrewed the back cover of machine to see the internals:
+Specs-wise, I was surprised when realized that the machine sports an AMD-processor. To be precise, it is an AMD Ryzen 5 3500U quad-core with HT (8 threads) with discrete GPU Radeon Vega 8, with 15W TDP and 12nm lithography. That puts it somewhere in the lower-middle place on the market reserved for ultrabooks, mini PCs and budget laptops. There is 8 GB DDR4-2400 SDRAM (one piece, hence one-channel) and main storage 256 GB PCIe NVMe M.2 SSD. Sounds decent, although a bit tight. Given the tendency of soldering everything to the motherboard, I expected little-to-none upgrades possible; out of curiosity I immediately voided warranty (could afford being reckless as I have plenty of alternative PCs lying around) and unscrewed the back cover of machine to see the internals:
 
 ![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112303.jpg) 
 
@@ -22,7 +22,7 @@ The RAM memory is NOT soldered and there are two slots, according to specs sheet
 
 ![HP Notebook 15 gen. 2021](https://sbozich.github.io/assets/15112304.jpg) 
 
-The machine is not an ultrabook, but it is reasonably thin, so some scarcity of ports is expected. I supposed there will be an USB-C, but it is somehow missing (meaning no charging via phone charger and no video output through it), but there are 3 USB ordinary ports (type A), of which two are 3.1, third is 2.0 (all support only data transfer, no charging). Which means, laptop can’t charge other devices through USB and it can’t be charged through it. There is standard LAN port which is a fine addition (usually missing on newer laptops), a HDMI a/v out (standard size, not mini), usual headphone/mic combo connector and SD card reader. Basics are covered, nothing more, nothing less.
+The machine is not an ultrabook, but it is reasonably thin, so some scarcity of ports is expected. I supposed there will be an USB-C, but it is somehow missing (meaning no charging via phone charger and no video output through it), but there are 3 USB ordinary ports (type A), of which two are 3.1, third is 2.0 (all support only data transfer, no charging). Which means, laptop can’t charge other devices through USB and it can’t be charged through it. There is standard LAN port which is a fine addition (usually missing on newer laptops), a HDMI a/v out (standard size, not mini), usual headphone/mic combo connector and SD card reader. Kensington lock is present as well, should you need it. Basics are covered, nothing more, nothing less.
 
 ## Battery
 
@@ -49,7 +49,15 @@ The system supports the NVMe SSD and 256 GB unit is installed. The disk benchmar
 
 The BIOS isn’t configurable so the user can’t change anything of importance in it. This is a serious drawback and puts HP on the throne of shame, as the disk transfer rates of such kind are now 15 years old.
 
-Going further, 8 GB of RAM is on the lower edge, especially given the fact that the GPU RAM takes 2 GB of it, so user has only the 6 GB at disposal. For the light, office use, browsing and similar tasks it’ll do the job, however, forget anything more demanding. Expansion to the 16 GB will prove a bit difficult, since one should buy the same memory module which is impossible to find on the market (two same modules would avoid eventual memory issues), so the most probable solution would be acquiring a 2*8 GB modules of DDR4 laptop RAM, which amount to 10% of the laptop’s worth. There is a possibility of replacing SSD as the faster ones are readily available, and, technically, it is possible to add another 2.5” HDD/SSD, however HP complicated things here and didn’t provide the connector which must be manually bought and installed. Since the data rate of NVMe drive is limited to prehistorical values, there is no sense to upgrade it either. 
+Going further, 8 GB of RAM is on the lower edge, especially given the fact that the GPU RAM takes 2 GB of it, so user has only the 6 GB at disposal. For the light, office use, browsing and similar tasks it’ll do the job, however, forget anything more demanding. Expansion to the 16 GB will prove a bit difficult, since one should buy the same memory module which is impossible to find on the market (two same modules would avoid eventual memory issues), so the most probable solution would be acquiring a 2*8 GB modules of DDR4 laptop RAM, which amount to 10% of the laptop’s worth. There is a possibility of replacing SSD as the faster ones are readily available, and, technically, it is possible to add another 2.5” HDD/SSD, however HP complicated things here and didn’t provide the connector which must be manually bought and installed. To be precise, three parts are actually needed:
+
+* Hard drive bracket, part number L20455-001 (here you could also use some strong double-sided foamy tape instead)
+
+* Hard drive connector board, part number L20454-001
+
+* Hard drive/solid-state drive cable, part number L20456-001
+
+NVMe can also be upgraded to a larger one, which is probably best option when it comes to storage expansion. 
 
 ## Performance
 
@@ -73,7 +81,7 @@ Portability is average: ideally, you’d want a 14” laptop or less when carryi
 
 ## Conclusion
 
-Although it is a decent machine in most departments, even if it would have had a full-speed NVMe drive I wouldn’t have bought it for the single reason that it does not have USB-C (meaning, you can ditch the original charger and just use your phone’s one to charge it – one thing less in the backpack!). Another thing is crappy touchpad which means that an average user will probably have to carry around external mouse. Third thing, if you are constantly on the move, you’d be better-off with a lower-screened laptop which you can hook-up to larger external screen if needed. If you can live with those things, or if you don’t require much portability, this machine is a decent choice especially if it sits on the desk and doesn’t move often. I am ditching it as it collects dust sitting on the shelf across my mighty reliable desktop PC.
+Although it is a decent machine in most departments, even if it would have had a full-speed NVMe drive I wouldn’t have bought it for the single reason that it does not have USB-C (meaning, you can ditch the original charger and just use your phone’s one to charge it – one thing less in the backpack!). Another thing is crappy touchpad which means that an average user will probably have to carry around external mouse. Third thing, if you are constantly on the move, you’d be better-off with a lower-screened laptop which you can hook-up to larger external screen if needed. If you can live with those things, or if you don’t require much portability, this machine is a solid choice especially if it sits on the desk and doesn’t move often. 
 
 **Update 16th of February 2023:**
 
