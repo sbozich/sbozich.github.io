@@ -10,7 +10,7 @@ order: 4
 
 My passion started in 1996 when I was amazed by the new tech wave that was opening new possibilities in the business, entertainment and telecommunications. Old enough though to remember 'good old times' when we used floppy disks, had no Internet, exchanged the software from hand to hand. 
 
-Many years afterwards, I decided to study computer science and earned <a href="https://sbozich.github.io/assets/about/14ITBachelorwaddendum.pdf" target="_blank">my bachelor</a> in the Autumn of 2022. 
+Many years afterwards, I decided to study computer science and earned <a href="https://sbozich.github.io/assets/about/14ITBachelorwaddendum.pdf" target="_blank">my bachelor</a> in the Autumn of 2022 (officialy <a href="https://sbozich.github.io/assets/about/03StatementofcomparabilityforforeignhighereducationqualificationsGermanyIT.pdf" target="_blank">recognized</a> in Germany). 
 
 Currently pursue and explore backend technologies like Python, C#, database stuff (MySQL and MS SQL), as well as some broader topics like algorithms and database structures, but am opened to other fields as well.
 
@@ -18,7 +18,7 @@ I passed the <a href="https://sbozich.github.io/assets/about/13Microsoft070620.p
 
 ## Bachelor of Economics, MBA
 
-Back in time, have invested in higher education in Economics and earned my <a href="https://sbozich.github.io/assets/about/01Bachelor.pdf" target="_blank">Bachelor degree</a>, which is <a href="https://sbozich.github.io/assets/about/02StatementofcomparabilityforforeignhighereducationqualificationsGermany.pdf" target="_blank">officialy recognized</a> in Germany as well.
+Back in time, have invested in higher education in Economics and earned my <a href="https://sbozich.github.io/assets/about/01Bachelor.pdf" target="_blank">Bachelor degree</a>, which is officialy <a href="https://sbozich.github.io/assets/about/02StatementofcomparabilityforforeignhighereducationqualificationsGermany.pdf" target="_blank">recognized</a> in Germany as well.
 
 Surprisingly, that was not enough for me so I pursued and successfully finished <a href="https://sbozich.github.io/assets/about/03MBA.pdf" target="_blank">MBA studies</a>.
 
