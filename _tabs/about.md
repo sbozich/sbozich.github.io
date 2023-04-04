@@ -10,7 +10,7 @@ order: 4
 
 My passion started in 1996 when I was amazed by the new tech wave that was opening new possibilities in the business, entertainment and telecommunications. Old enough though to remember 'good old times' when we used floppy disks, had no Internet, exchanged the software from hand to hand. 
 
-Many years afterwards, I decided to study computer science and earned <a href="https://sbozich.github.io/assets/about/14ITBachelorwaddendum.pdf" target="_blank">my bachelor</a> in the Autumn of 2022 (officialy <a href="https://sbozich.github.io/assets/about/03StatementofcomparabilityforforeignhighereducationqualificationsGermanyIT.pdf" target="_blank">recognized</a> in Germany). 
+Many years afterwards, I decided to study computer science and earned <a href="https://sbozich.github.io/assets/about/14ITBachelorwaddendum.pdf" target="_blank">my bachelor</a> in the Autumn of 2022 (officialy <a href="https://sbozich.github.io/assets/about/03ITrec.pdf" target="_blank">recognized</a> in Germany). 
 
 Currently pursue and explore backend technologies like Python, C#, database stuff (MySQL and MS SQL), as well as some broader topics like algorithms and database structures, but am opened to other fields as well.
 
