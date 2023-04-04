@@ -1,6 +1,6 @@
 ---
 title: Retro computing - review of the Lenovo Thinkpad X201
-categories: [hardware, thinkpad]
+categories: [hardware, laptop]
 tags: [retro, hardware, thinkpad]
 ---
 
