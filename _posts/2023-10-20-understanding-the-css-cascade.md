@@ -43,6 +43,7 @@ CSS specificity is calculated based on a few different factors, primarily focusi
 *	IDs: #id — second highest.
 *	Classes, pseudo-classes: .class, :hover — lower specificity.
 *	Elements and pseudo-elements: div, h1, ::after — lowest specificity.
+<br>
 Here’s an example:
 
 ```CSS
