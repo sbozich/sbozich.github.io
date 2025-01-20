@@ -22,7 +22,7 @@ There are three primary factors that influence the cascade:
 CSS rules are applied in the order in which they appear in the stylesheet, or in the order they are linked in the HTML document. If two rules have the same specificity, the rule that appears last in the code will take precedence.
 For example, if we have the following two CSS rules:
 
-``` CSS
+```CSS
     p {
         color: blue;
       }
@@ -30,6 +30,11 @@ For example, if we have the following two CSS rules:
     p {
         color: red;
       }
+```
+
+```python
+print(ascii(fix_s1)) # NFC applied outputs 'Menue\xf1o'
+print(ascii(fix_s1)) # NFD applied outputs 'Menuen\u0303o'
 ```
 
 The text color of all <p> elements will be red because the second rule appears after the first one. The later rule overrides the previous one due to its position in the source code.
