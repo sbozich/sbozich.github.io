@@ -33,8 +33,13 @@ For example, if we have the following two CSS rules:
 ```
 
 ```css
-print(ascii(fix_s1)) # NFC applied outputs 'Menue\xf1o'
-print(ascii(fix_s1)) # NFD applied outputs 'Menuen\u0303o'
+    p {
+        color: blue;
+      }
+
+    p {
+        color: red;
+      }
 ```
 
 The text color of all <p> elements will be red because the second rule appears after the first one. The later rule overrides the previous one due to its position in the source code.
