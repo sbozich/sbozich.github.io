@@ -13,15 +13,15 @@ The CSS cascade is essentially the set of rules that determines the final styles
 There are three primary factors that influence the cascade:
 
 
-1.	<b>Source Order (the order in which styles are defined in the CSS).</b>
-2.	<b>Specificity (the weight of a selector that targets an element).</b>
-3.	<b>Importance (rules marked with !important override other styles).</b>
-<br>
+1.	Source Order (the order in which styles are defined in the CSS).
+2.	Specificity (the weight of a selector that targets an element).
+3.	Importance (rules marked with !important override other styles).
+
 
 ### 1. Source Order 
 CSS rules are applied in the order in which they appear in the stylesheet, or in the order they are linked in the HTML document. If two rules have the same specificity, the rule that appears last in the code will take precedence.
 For example, if we have the following two CSS rules:
-<br>
+
 
 ```CSS
     p {
@@ -43,7 +43,7 @@ CSS specificity is calculated based on a few different factors, primarily focusi
 *	IDs: #id — second highest.
 *	Classes, pseudo-classes: .class, :hover — lower specificity.
 *	Elements and pseudo-elements: div, h1, ::after — lowest specificity.
-<br>
+
 Here’s an example:
 
 ```CSS
