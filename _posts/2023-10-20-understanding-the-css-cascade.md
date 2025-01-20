@@ -32,7 +32,7 @@ For example, if we have the following two CSS rules:
       }
 ```
 
-```python
+```css
 print(ascii(fix_s1)) # NFC applied outputs 'Menue\xf1o'
 print(ascii(fix_s1)) # NFD applied outputs 'Menuen\u0303o'
 ```
