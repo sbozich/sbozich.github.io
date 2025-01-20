@@ -18,9 +18,10 @@ There are three primary factors that influence the cascade:
 3.	<b>Importance (rules marked with !important override other styles).</b>
 <br>
 
-### Source Order 
+### 1. Source Order 
 CSS rules are applied in the order in which they appear in the stylesheet, or in the order they are linked in the HTML document. If two rules have the same specificity, the rule that appears last in the code will take precedence.
 For example, if we have the following two CSS rules:
+<br>
 
 ```CSS
     p {
@@ -28,7 +29,7 @@ For example, if we have the following two CSS rules:
       }
 
     p {
-    color: red;
+        color: red;
       }
 ```
 
