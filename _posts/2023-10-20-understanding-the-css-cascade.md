@@ -16,7 +16,7 @@ There are three primary factors that influence the cascade:
 1.	<b>Source Order (the order in which styles are defined in the CSS).</b>
 2.	<b>Specificity (the weight of a selector that targets an element).</b>
 3.	<b>Importance (rules marked with !important override other styles).</b>
-
+<br>
 
 1. <b> Source Order </b>
 CSS rules are applied in the order in which they appear in the stylesheet, or in the order they are linked in the HTML document. If two rules have the same specificity, the rule that appears last in the code will take precedence.
