@@ -18,11 +18,11 @@ There are three primary factors that influence the cascade:
 3.	<b>Importance (rules marked with !important override other styles).</b>
 <br>
 
-1. <b> Source Order </b>
+### 1. Source Order 
 CSS rules are applied in the order in which they appear in the stylesheet, or in the order they are linked in the HTML document. If two rules have the same specificity, the rule that appears last in the code will take precedence.
 For example, if we have the following two CSS rules:
 
-```css
+```CSS
     p {
         color: blue;
       }
@@ -34,7 +34,7 @@ For example, if we have the following two CSS rules:
 
 The text color of all <p> elements will be red because the second rule appears after the first one. The later rule overrides the previous one due to its position in the source code.
 
-2. <b>Specificity </b>
+### 2. Specificity 
 Specificity determines the "weight" of a CSS selector. It is a measure of how specific a rule is in selecting an element. The more specific a selector is, the higher its specificity value, and thus, the more likely it is to be applied when there are conflicting styles.
 CSS specificity is calculated based on a few different factors, primarily focusing on how the selector targets the element. The specificity hierarchy is as follows:
 
@@ -61,15 +61,11 @@ p {
 }
 ```
 
-Given the following HTML:
-
-```HTML
-<p class="text-blue" id="main-text">Hello, world!</p>
-```
+Given the following HTML: `<p class="text-blue" id="main-text">Hello, world!</p>`
 
 The ID selector #main-text will be applied first, as it has the highest specificity, so the text will be green, overriding the class and element styles.
 
-3. <b>Importance (!important)</b>
+### 3. Importance (!important)
 The !important declaration is a special flag that forces a CSS rule to take precedence over other conflicting rules, regardless of specificity or source order. While it can be useful for applying critical styles, it should be used sparingly, as it can make your code harder to maintain and debug.
 For example:
 
