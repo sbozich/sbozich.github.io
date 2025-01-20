@@ -22,7 +22,7 @@ There are three primary factors that influence the cascade:
 CSS rules are applied in the order in which they appear in the stylesheet, or in the order they are linked in the HTML document. If two rules have the same specificity, the rule that appears last in the code will take precedence.
 For example, if we have the following two CSS rules:
 
-```
+``` CSS
     p {
         color: blue;
       }
