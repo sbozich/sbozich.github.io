@@ -45,7 +45,9 @@ CSS specificity is calculated based on a few different factors, primarily focusi
 *	Elements and pseudo-elements: div, h1, ::after — lowest specificity.
 
 Here’s an example:
-```{CSS}
+
+
+```css
 
 /* Element selector (lowest specificity) */
 p {
@@ -71,7 +73,8 @@ The ID selector #main-text will be applied first, as it has the highest specific
 The !important declaration is a special flag that forces a CSS rule to take precedence over other conflicting rules, regardless of specificity or source order. While it can be useful for applying critical styles, it should be used sparingly, as it can make your code harder to maintain and debug.
 For example:
 
-```CSS
+
+```css
 p {
   color: blue !important;
 }
@@ -88,7 +91,8 @@ However, using !important too frequently can lead to problems, such as difficult
 
 Let’s consider a more complex example to see how the cascade works in real-world scenarios. Suppose you have the following CSS:
 
-```CSS
+
+```css
 /* Global rule */
 h1 {
   color: black;
