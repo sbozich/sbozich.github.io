@@ -45,7 +45,7 @@ CSS specificity is calculated based on a few different factors, primarily focusi
 *	Elements and pseudo-elements: div, h1, ::after — lowest specificity.
 
 Here’s an example:
-```CSS
+```{CSS}
 
 /* Element selector (lowest specificity) */
 p {
