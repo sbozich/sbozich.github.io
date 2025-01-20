@@ -12,24 +12,24 @@ In this article, we'll explore what the CSS cascade is, how it works, and how de
 The CSS cascade is essentially the set of rules that determines the final styles applied to an element on a web page when multiple CSS rules target the same element. When more than one rule affects the same element, CSS has to decide which rule should take precedence. This decision is based on the order of the rules, their specificity, and whether the rule is marked as important.
 There are three primary factors that influence the cascade:
 
-<b>
-1.	Source Order (the order in which styles are defined in the CSS).
-2.	Specificity (the weight of a selector that targets an element).
-3.	Importance (rules marked with !important override other styles).
-</b>
+
+<b>1.	Source Order (the order in which styles are defined in the CSS).</b>
+<b>2.	Specificity (the weight of a selector that targets an element).</b>
+<b>3.	Importance (rules marked with !important override other styles).</b>
+
 
 1. <b> Source Order </b>
 CSS rules are applied in the order in which they appear in the stylesheet, or in the order they are linked in the HTML document. If two rules have the same specificity, the rule that appears last in the code will take precedence.
 For example, if we have the following two CSS rules:
 
 ```CSS
-p {
-  color: blue;
-}
+    p {
+        color: blue;
+      }
 
-p {
-  color: red;
-}
+    p {
+    color: red;
+      }
 ```
 
 The text color of all <p> elements will be red because the second rule appears after the first one. The later rule overrides the previous one due to its position in the source code.
@@ -67,7 +67,7 @@ Given the following HTML:
 <p class="text-blue" id="main-text">Hello, world!</p>
 ```
 
-	The ID selector #main-text will be applied first, as it has the highest specificity, so the text will be green, overriding the class and element styles.
+The ID selector #main-text will be applied first, as it has the highest specificity, so the text will be green, overriding the class and element styles.
 
 3. <b>Importance (!important)</b>
 The !important declaration is a special flag that forces a CSS rule to take precedence over other conflicting rules, regardless of specificity or source order. While it can be useful for applying critical styles, it should be used sparingly, as it can make your code harder to maintain and debug.
