@@ -7,6 +7,8 @@ description: "Instantly compare, merge, and clean lists — right in your browse
 image: https://raw.githubusercontent.com/sbozich/lists-comparator/main/assets/screenshot.png
 ---
 
+> 🌐 **Try it now:** [listcomparator.com](https://listcomparator.com)
+
 Ever been faced with two (or more) massive lists and the daunting task of finding what’s changed?  
 Manually comparing spreadsheets or text files is tedious, error-prone, and a huge waste of time.  
 
