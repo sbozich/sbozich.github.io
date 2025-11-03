@@ -10,7 +10,7 @@ image: https://raw.githubusercontent.com/sbozich/lists-comparator/main/assets/sc
 Ever been faced with two (or more) massive lists and the daunting task of finding what’s changed?  
 Manually comparing spreadsheets or text files is tedious, error-prone, and a huge waste of time.  
 
-That’s why I built **List Comparator & Processor** — a free, browser-based tool that makes list comparison and data cleanup effortless.
+That’s why I built **[listcomparator.com](https://listcomparator.com)** — a free, browser-based tool that makes list comparison and data cleanup effortless.
 
 > 💡 **Privacy First:** Your data never leaves your computer. Everything runs locally in your browser.
 
