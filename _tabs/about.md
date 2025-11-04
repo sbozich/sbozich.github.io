@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-<b>Sinisa Bozic, BCS, BEc, MBA</b>, <a href="mailto: newbraveworld@zohomail.eu" target="_blank"> E-Mail</a>
+<b>Sinisa Bozic, BCS, BEc, MBA</b>, <a href="mailto: modblaises@proton.me" target="_blank"> E-Mail</a>
 
 ## Bachelor of Computer Science
 
