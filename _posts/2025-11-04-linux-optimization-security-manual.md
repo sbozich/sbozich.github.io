@@ -26,18 +26,17 @@ The goal is not to chase artificial benchmarks, but to balance **performance, st
 
 ## Contents
 
-- [Preface](#preface)
-- [System Overview](#system-overview)
-- [Core System Maintenance](#core-system-maintenance)
-- [Performance & Responsiveness](#performance--responsiveness)
-- [Power & Device Management](#power--device-management)
-- [GNOME / Wayland UX and Session Behavior](#gnome--wayland-ux-and-session-behavior)
-- [Connectivity & Peripheral Stability](#connectivity--peripheral-stability)
-- [Security & Access](#security--access)
-- [Automation & Scheduling](#automation--scheduling)
-- [Firmware & Boot Integrity](#firmware--boot-integrity)
-- [Optional Cleanup / Reverts](#optional-cleanup--reverts)
-- [Summary & Philosophy](#summary--philosophy)
+- [System Overview](#️-1-system-overview)
+- [Core System Maintenance](#-2-core-system-maintenance)
+- [Performance & Responsiveness](#-3-performance--responsiveness)
+- [Power & Device Management](#-4-power--device-management)
+- [GNOME / Wayland UX and Session Behavior](#️-5-gnome--wayland-ux)
+- [Connectivity & Peripheral Stability](#-6-connectivity--peripherals)
+- [Security & Access](#-7-security--access)
+- [Automation & Scheduling](#️-8-automation--scheduling)
+- [Firmware & Boot Integrity](#-9-firmware--boot-integrity)
+- [Optional Cleanup / Reverts](#-10-optional-reverts)
+- [Summary & Philosophy](#-11-summary--philosophy)
 
 
 ---
