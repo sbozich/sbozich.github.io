@@ -30,19 +30,20 @@ The goal is not to chase artificial benchmarks, but to balance **performance, st
 
 ## Contents
 
-1. [System Overview](#️-1-system-overview)
-2. [Core System Maintenance](#️-2-core-system-maintenance)
-3. [Performance & Responsiveness](#️-3-performance--responsiveness)
-4. [Power & Device Management](#️-4-power--device-management)
-5. [GNOME / Wayland UX](#️-5-gnome--wayland-ux)
-6. [Connectivity & Peripherals](#️-6-connectivity--peripherals)
-7. [Security & Access](#️-7-security--access)
-8. [Automation & Scheduling](#️-8-automation--scheduling)
-9. [Firmware & Boot Integrity](#️-9-firmware--boot-integrity)
-10. [Optional Reverts](#️-10-optional-reverts)
-11. [Summary & Philosophy](#️-11-summary--philosophy)
+1. [System Overview](#1-system-overview)
+2. [Core System Maintenance](#2-core-system-maintenance)
+3. [Performance & Responsiveness](#3-performance--responsiveness)
+4. [Power & Device Management](#4-power--device-management)
+5. [GNOME / Wayland UX and Session Behavior](#5-gnome--wayland-ux-and-session-behavior)
+6. [Connectivity & Peripheral Stability](#6-connectivity--peripheral-stability)
+7. [Security & Access](#7-security--access)
+8. [Automation & Scheduling](#8-automation--scheduling)
+9. [Firmware & Boot Integrity](#9-firmware--boot-integrity)
+10. [Optional Cleanup / Reverts](#10-optional-cleanup--reverts)
+11. [Summary & Philosophy](#11-summary--philosophy)
 
 ---
+
 
 <!--more-->
 
