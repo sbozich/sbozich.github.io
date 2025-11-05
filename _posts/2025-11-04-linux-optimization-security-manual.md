@@ -6,6 +6,7 @@ tags: [Zorin, Ubuntu, Linux, Optimization, Security, Systemd, Flatpak]
 author: "Sinisa Bozic"
 author_url: "https://sbozich.github.io"
 description: "Field-tested, reversible tweaks for Zorin OS 17.3 / 18 and Ubuntu-based systems: performance, power, and security."
+image: assets/gear.png
 ---
 
 ![Manual icon](https://sbozich.github.io/assets/gear.png)
@@ -51,38 +52,38 @@ The goal is not to chase artificial benchmarks, but to balance **performance, st
 > This practical manual covers safe, reversible system optimizations for Zorin OS and other Ubuntu-based distros.  
 > <!--more-->
 
+## ⚙️ 1. System Overview — (Scope & Safety Rules)
 
-## ⚙️ 1. System Overview
+**Target Environments**  
+- Zorin OS 17.3 / 18  
+- Ubuntu 22.04 / 24.04 LTS  
+- Linux Mint and derivatives  
 
-Target environments:  
-• Zorin OS 17.3 and 18  
-• Ubuntu 22.04 / 24.04 LTS  
-• Linux Mint and derivatives  
-
-**Guiding principles**  
-1. Every change must be safe to undo.  
-2. Optimizations must not break printing, Bluetooth, or Wi-Fi.  
-3. Use upstream tools (systemd, UFW, APT).  
-4. Keep automation transparent and reversible.
-
----
-
-## 🧰 2. Core System Maintenance
-
-### 2.1 Preserve APT auto-updates
-
-Zorin inherits Ubuntu’s `unattended-upgrades` and Software Updater. Keep them enabled.
-
-**Why:** maintains signed kernel and package updates.  
-**Risk / Benefit:** Low / High — ensures secure patching.
+**Guiding Principles**  
+1. Every tweak must be **fully reversible**.  
+2. Never break **printing, Bluetooth, or Wi-Fi**.  
+3. Use **upstream-supported mechanisms** only (`systemd`, `UFW`, `APT`).  
+4. Keep **automation transparent** — no opaque cron jobs or hidden scripts.
 
 ---
 
-### 2.2 Daily Flatpak Auto-Update (user level)
+## 🧰 2. Core System Maintenance — (Keep Base Layer Healthy)
 
-Ensures Flatpak apps stay current even without GUI open.
+### 2.1 Preserve APT Auto-Updates — (Kernel & Security Patching)
+```bash
+systemctl status unattended-upgrades
+sudo systemctl enable --now unattended-upgrades
+```
+**Why:** ensures signed kernel and package updates remain in sync with Secure Boot.  
+**Revert:** `sudo systemctl disable --now unattended-upgrades`  
 
-**✅ Apply**
+| Risk | Benefit |
+|:----:|:---------|
+| Very Low | Ensures automatic kernel and security patching |
+
+---
+
+### 2.2 Daily Flatpak Auto-Update — (User-Level, GUI-Independent)
 ```bash
 mkdir -p ~/bin
 cat <<'EOF' > ~/bin/zorin-flatpak-auto-update.sh
@@ -93,9 +94,7 @@ mkdir -p "$(dirname "$LOGFILE")"
 EOF
 chmod +x ~/bin/zorin-flatpak-auto-update.sh
 ```
-
-Create systemd user timer:
-
+Create service and timer:
 ```bash
 mkdir -p ~/.config/systemd/user
 cat <<'EOF' > ~/.config/systemd/user/zorin-flatpak-auto-update.service
@@ -119,13 +118,12 @@ EOF
 systemctl --user daemon-reload
 systemctl --user enable --now zorin-flatpak-auto-update.timer
 ```
-
-**🔍 Verify**
+**Verify:**  
 ```bash
-systemctl --user list-timers | grep zorin-flatpak-auto-update
+systemctl --user list-timers | grep flatpak
+tail -n 10 ~/.local/share/flatpak-auto.log
 ```
-
-**↩️ Revert**
+**Revert:**  
 ```bash
 systemctl --user disable --now zorin-flatpak-auto-update.timer
 rm ~/.config/systemd/user/zorin-flatpak-auto-update.*
@@ -134,190 +132,264 @@ rm ~/bin/zorin-flatpak-auto-update.sh
 
 | Risk | Benefit |
 |:----:|:---------|
-| Minimal | Apps stay current automatically |
+| Minimal | Keeps Flatpak apps current without GUI |
 
 ---
 
-## ⚡ 3. Performance & Responsiveness
+## ⚡ 3. Performance & Responsiveness — (Reduce I/O and Background Load)
 
-### 3.1 Lower swappiness
-
+### 3.1 Lower Swappiness — (Reduce Disk Thrashing)
 ```bash
+cat /proc/sys/vm/swappiness
 echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/90-swappiness.conf
 sudo sysctl -p /etc/sysctl.d/90-swappiness.conf
 ```
-
-**Revert:**  
-`sudo rm /etc/sysctl.d/90-swappiness.conf && sudo sysctl -p`
+**Why:** with ≥8 GB RAM, reduces swapping and improves responsiveness.  
+**Revert:** `sudo rm /etc/sysctl.d/90-swappiness.conf && sudo sysctl -p`  
 
 | Risk | Benefit |
 |:----:|:---------|
-| Low | Snappier desktop on 8 GB+ RAM |
+| Low | Faster multitasking and reduced SSD wear |
 
 ---
 
-### 3.2 Enable weekly SSD TRIM
+### 3.2 Enable Weekly SSD TRIM — (Maintain Write Performance)
 ```bash
 sudo systemctl enable --now fstrim.timer
+systemctl status fstrim.timer
 ```
+**Why:** trims unused blocks weekly, preserving SSD speed.  
+**Revert:** `sudo systemctl disable --now fstrim.timer`  
+
+| Risk | Benefit |
+|:----:|:---------|
+| None | Sustains SSD performance automatically |
 
 ---
 
-### 3.3 Limit systemd journal size
+### 3.3 Limit Journal Size — (Prevent Log Bloat)
 ```bash
 sudo mkdir -p /etc/systemd/journald.conf.d
 printf '%s\n' '[Journal]' 'SystemMaxUse=200M' | sudo tee /etc/systemd/journald.conf.d/size-limit.conf
 sudo systemctl restart systemd-journald
 ```
+**Why:** prevents logs from consuming disk space.  
+**Revert:** `sudo rm /etc/systemd/journald.conf.d/size-limit.conf && sudo systemctl restart systemd-journald`  
+
+| Risk | Benefit |
+|:----:|:---------|
+| Low | Prevents storage bloat without losing important logs |
 
 ---
 
-### 3.4 Disable non-essential services (desktop)
+### 3.4 Disable Non-Essential Services — (Reduce Boot Latency)
 ```bash
 sudo systemctl disable --now man-db.timer smartmontools.service
 sudo systemctl mask NetworkManager-wait-online.service
 ```
+**Why:** disables slow or redundant background services.  
+**Revert:**  
+```bash
+sudo systemctl unmask NetworkManager-wait-online.service
+sudo systemctl enable --now man-db.timer smartmontools.service
+```
+| Risk | Benefit |
+|:----:|:---------|
+| Medium (loss of SMART alerts, slower manual man updates) | Shorter boot and lower background I/O |
 
 ---
 
-## 🔋 4. Power & Device Management
+## 🔋 4. Power & Device Management — (Efficiency & Longevity)
 
-### 4.1 TLP power optimizer
+### 4.1 TLP Power Optimizer
 ```bash
 sudo apt install -y tlp tlp-rdw
 sudo systemctl enable --now tlp
+sudo tlp-stat -s
+```
+**Why:** replaces multiple vendor daemons with one policy manager.  
+**Revert:** `sudo systemctl disable --now tlp`  
+
+| Risk | Benefit |
+|:----:|:---------|
+| Low | Longer battery life, cooler operation |
+
+---
+
+### 4.2 Lid Switch Policy
+```bash
+sudo nano /etc/systemd/logind.conf
+```
+Set desired behavior:  
+`HandleLidSwitch=suspend` or `ignore` for desktops.  
+Restart logind:  
+```bash
+sudo systemctl restart systemd-logind
 ```
 
----
-
-### 4.2 Lid switch policies
-
-Desktop (ignore lid):  
-`HandleLidSwitch=ignore`  
-Laptop (suspend):  
-`HandleLidSwitch=suspend`
-
-Edit `/etc/systemd/logind.conf`, restart logind.
+| Risk | Benefit |
+|:----:|:---------|
+| Low | Predictable lid behavior; avoids accidental suspends |
 
 ---
 
-## 🖥️ 5. GNOME / Wayland UX
+## 🖥️ 5. GNOME / Wayland UX — (Minimalist Comfort)
 
-### 5.1 Refine screen-lock timing
+### 5.1 Refine Screen Lock Timing
 ```bash
 gsettings set org.gnome.desktop.session idle-delay 900
 gsettings set org.gnome.desktop.screensaver lock-delay 30
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| None | Prevents frequent lock interruptions |
 
 ---
 
-### 5.2 Hide “Activities” button
+### 5.2 Hide Activities Button
 ```bash
 gsettings set org.gnome.shell.extensions.dash-to-dock show-show-apps-button false
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| None | Cleaner dock layout and visual focus |
 
 ---
 
-### 5.3 Middle-click Show Desktop
+### 5.3 Middle-Click Show Desktop
 ```bash
 sudo apt install -y xdotool
 xdotool key Super+d
 ```
-
-Bind via Settings → Keyboard → Custom Shortcuts.
+Bind via Settings → Keyboard → Custom Shortcuts.  
+| Risk | Benefit |
+|:----:|:---------|
+| None | Faster workspace visibility and navigation |
 
 ---
 
-## 🌐 6. Connectivity & Peripherals
+## 🌐 6. Connectivity & Peripherals — (Stable Wireless and Bluetooth)
 
-### 6.1 Bluetooth resume
+### 6.1 Bluetooth Resume
 ```bash
 sudo systemctl enable --now bluetooth.service
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| None | Ensures Bluetooth auto-starts after suspend |
 
-### 6.2 Wi-Fi powersave fix
+---
+
+### 6.2 Wi-Fi Powersave Fix
 ```bash
 echo -e '[connection]\nwifi.powersave=2' | sudo tee /etc/NetworkManager/conf.d/wifi-powersave.conf
 sudo systemctl restart NetworkManager
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| None | Prevents Wi-Fi dropouts and improves stability |
 
 ---
 
-## 🔒 7. Security & Access
+## 🔒 7. Security & Access — (Harden Without Bloat)
 
-### 7.1 UFW Firewall
+### 7.1 Firewall
 ```bash
 sudo ufw enable
 sudo ufw allow ssh
 sudo ufw allow 445/tcp
+sudo ufw status
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| Low | Protects network services with minimal overhead |
 
-### 7.2 ClamAV scanner
+---
+
+### 7.2 ClamAV
 ```bash
 sudo apt install -y clamav clamtk
 sudo freshclam
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| Low (CPU use during scans) | Detects common malware and infected USBs |
 
-### 7.3 rkhunter
+---
+
+### 7.3 Rootkit Hunter
 ```bash
 sudo apt install -y rkhunter
 sudo rkhunter --update
 sudo rkhunter --check
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| Low | Detects potential rootkits and hidden binaries |
 
-### 7.4 Password managers
+---
+
+### 7.4 Password Managers
 Bitwarden (cloud) or KeePassXC (offline).  
 ```bash
 flatpak install flathub org.keepassxc.KeePassXC
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| None | Secure credential storage and autofill |
 
 ---
 
 ## ⏱️ 8. Automation & Scheduling
-
-List timers: `systemctl list-timers --all`  
-APT cleanup: `sudo apt autoremove --purge && sudo apt clean`
-
-Flatpak log:  
 ```bash
+systemctl list-timers --all
+sudo apt autoremove --purge && sudo apt clean
 tail -20 ~/.local/share/flatpak-auto.log
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| Very Low | Keeps system clean and maintenance automated |
 
 ---
 
 ## 🧬 9. Firmware & Boot Integrity
-
 ```bash
 [ -d /sys/firmware/efi ] && echo "UEFI mode" || echo "Legacy BIOS mode"
 mokutil --sb-state
 sudo fwupdmgr get-updates
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| None | Confirms Secure Boot and firmware health |
 
 ---
 
-## 🧹 10. Optional Reverts
-
+## 🧹 10. Optional Reverts — (Return to Stock State)
 ```bash
 dconf reset -f /
 sudo systemctl unmask NetworkManager-wait-online.service
 sudo systemctl enable --now man-db.timer smartmontools.service
 ```
+| Risk | Benefit |
+|:----:|:---------|
+| Medium (resets all GNOME tweaks) | Full restoration of Zorin default behavior |
 
 ---
 
 ## 🧭 11. Summary & Philosophy
 
-> Optimize because you understand — not because “some list said so.”
+> Tune your system because you **understand** it — not because “a list said so.”  
+> The best optimization is one you can confidently undo.
 
-**Core takeaways**
-1. Keep APT updates and UFW active.  
-2. Automate Flatpak updates daily.  
-3. Lower swappiness.  
-4. Enable SSD TRIM weekly.  
-5. Keep Secure Boot verified.  
+| Principle | Goal |
+|:--|:--|
+| Keep APT updates and UFW active | Maintain secure base |
+| Automate Flatpak updates | Ensure app freshness |
+| Lower swappiness | Boost responsiveness |
+| Enable SSD TRIM | Preserve SSD longevity |
+| Verify Secure Boot | Maintain integrity |
 
 ---
-
 **Author:** [Sinisa Bozic](https://sbozich.github.io) · 2025  
 *Linux Optimization & Security Manual — Zorin & Ubuntu-based Systems*
 
