@@ -2,10 +2,7 @@
 
 {%- for post in posts -%}
   {%- comment -%}
-    Normalize image object:
-    post.image can be:
-    - string: /assets/gear.png
-    - object: { path: /assets/..., alt: ... }
+    Normalize image — Chirpy lets image be string or object.
   {%- endcomment -%}
   {%- assign has_image = false -%}
   {%- if post.image %}
