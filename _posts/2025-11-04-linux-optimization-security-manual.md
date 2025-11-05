@@ -192,6 +192,7 @@ sudo systemctl mask NetworkManager-wait-online.service
 sudo systemctl unmask NetworkManager-wait-online.service
 sudo systemctl enable --now man-db.timer smartmontools.service
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | Medium (loss of SMART alerts, slower manual man updates) | Shorter boot and lower background I/O |
@@ -239,6 +240,7 @@ sudo systemctl restart systemd-logind
 gsettings set org.gnome.desktop.session idle-delay 900
 gsettings set org.gnome.desktop.screensaver lock-delay 30
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | None | Prevents frequent lock interruptions |
@@ -249,6 +251,7 @@ gsettings set org.gnome.desktop.screensaver lock-delay 30
 ```bash
 gsettings set org.gnome.shell.extensions.dash-to-dock show-show-apps-button false
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | None | Cleaner dock layout and visual focus |
@@ -261,6 +264,7 @@ sudo apt install -y xdotool
 xdotool key Super+d
 ```
 Bind via Settings → Keyboard → Custom Shortcuts.  
+
 | Risk | Benefit |
 |:----:|:---------|
 | None | Faster workspace visibility and navigation |
@@ -273,6 +277,7 @@ Bind via Settings → Keyboard → Custom Shortcuts.
 ```bash
 sudo systemctl enable --now bluetooth.service
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | None | Ensures Bluetooth auto-starts after suspend |
@@ -284,6 +289,7 @@ sudo systemctl enable --now bluetooth.service
 echo -e '[connection]\nwifi.powersave=2' | sudo tee /etc/NetworkManager/conf.d/wifi-powersave.conf
 sudo systemctl restart NetworkManager
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | None | Prevents Wi-Fi dropouts and improves stability |
@@ -299,6 +305,7 @@ sudo ufw allow ssh
 sudo ufw allow 445/tcp
 sudo ufw status
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | Low | Protects network services with minimal overhead |
@@ -310,6 +317,7 @@ sudo ufw status
 sudo apt install -y clamav clamtk
 sudo freshclam
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | Low (CPU use during scans) | Detects common malware and infected USBs |
@@ -322,6 +330,7 @@ sudo apt install -y rkhunter
 sudo rkhunter --update
 sudo rkhunter --check
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | Low | Detects potential rootkits and hidden binaries |
@@ -333,6 +342,7 @@ Bitwarden (cloud) or KeePassXC (offline).
 ```bash
 flatpak install flathub org.keepassxc.KeePassXC
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | None | Secure credential storage and autofill |
@@ -345,6 +355,7 @@ systemctl list-timers --all
 sudo apt autoremove --purge && sudo apt clean
 tail -20 ~/.local/share/flatpak-auto.log
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | Very Low | Keeps system clean and maintenance automated |
@@ -357,6 +368,7 @@ tail -20 ~/.local/share/flatpak-auto.log
 mokutil --sb-state
 sudo fwupdmgr get-updates
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | None | Confirms Secure Boot and firmware health |
@@ -369,6 +381,7 @@ dconf reset -f /
 sudo systemctl unmask NetworkManager-wait-online.service
 sudo systemctl enable --now man-db.timer smartmontools.service
 ```
+
 | Risk | Benefit |
 |:----:|:---------|
 | Medium (resets all GNOME tweaks) | Full restoration of Zorin default behavior |
