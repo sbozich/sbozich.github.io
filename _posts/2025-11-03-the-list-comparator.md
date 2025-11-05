@@ -4,7 +4,6 @@ date: 2025-11-03 21:00:00 +0100
 categories: [Web Resources]
 tags: [Online Tools, Data Processing, Productivity]
 description: "Instantly compare, merge, and clean lists — right in your browser. Privacy-friendly, powerful, and built for speed."
-image: https://raw.githubusercontent.com/sbozich/lists-comparator/main/assets/screenshot.png
 ---
 
 > 🌐 **Try it now:** [listcomparator.com](https://listcomparator.com)
