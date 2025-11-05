@@ -6,8 +6,6 @@ tags: [Zorin, Ubuntu, Linux, Optimization, Security, Systemd, Flatpak]
 author: "Sinisa Bozic"
 author_url: "https://sbozich.github.io"
 description: "Field-tested, reversible tweaks for Zorin OS 17.3 / 18 and Ubuntu-based systems: performance, power, and security."
-  path: /assets/gear.png
-  alt: "Linux optimization manual icon"
 ---
 
 ![Manual icon](https://sbozich.github.io/assets/gear.png)
