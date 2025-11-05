@@ -15,7 +15,7 @@ Windows Sandbox is an instance of a fresh Windows installation that starts withi
 Windows Sandbox is not supported on Home versions of either Windows 10 or 11. Windows 10 supported versions (Pro, Enterprise, Education) need to be build 18305 or newer – Windows Sandbox was introduced in May 2019. so, every supported and updated Windows is good to go. 
 Windows Sandbox is not enabled by default; therefore, it doesn’t show in the Start Menu. Prior to enabling it, the system needs to support a Virtualization option in BIOS: its state can be checked in the Task Manager:
 
-![](https://sbozich.github.io/assets/13112201.jpg)
+![Task Manager](https://sbozich.github.io/assets/13112201.jpg)
  
 If the host is virtualized itself (i.e., run in the virtual machine itself), the Nested Virtualization is required to run the Windows Sandbox. Enabling it is a matter of starting PowerShell and entering following command:
 
@@ -25,11 +25,11 @@ Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 
 Once the virtualization is enabled, the Windows Sandbox should be enabled by going to Control Panel > Programs > Turn Windows Features On or Off:
 
-![](https://sbozich.github.io/assets/13112202.jpg)
+![Windows Features](https://sbozich.github.io/assets/13112202.jpg)
  
 After the system restarts, Windows Sandbox appears in the Start Menu and it can be started:
 
-![](https://sbozich.github.io/assets/13112203.jpg)
+![Windows Sandbox](https://sbozich.github.io/assets/13112203.jpg)
  
  
 ## Features

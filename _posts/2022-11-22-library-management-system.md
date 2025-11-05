@@ -6,7 +6,7 @@ tags: [c#, databases, windows forms, visual studio]
 
 In this mini <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">project</a>, we will be creating a program in C# which serves as a Library Management System, enabling the basic functions of one such system. In particular, there are separate records of a books, books’ categories, authors, publishers, library members, as well as the records on book issues and returns. It is in fact a Windows Forms GUI program connected to the underlying database in MS SQL Server which uses similar logic as the <a href="https://sbozich.github.io/posts/mini-project-car-rental/" target="_blank">Car Rental</a> program.
 
-![](https://github.com/sbozich/Library-Management-System/raw/main/Showcase.gif) 
+![Program Overview](https://github.com/sbozich/Library-Management-System/raw/main/Showcase.gif) 
 
 ## Database overview
  
@@ -22,17 +22,17 @@ The underlying database consists of 7 tables, as follows:
 ## Structure of the program
 
 
-![](https://sbozich.github.io/assets/22112202a.jpg)
+![Program Structure](https://sbozich.github.io/assets/22112202a.jpg)
  
 The program holds a number of .cs files, each for the previously created database tables, respectively. As usual, startup Program.cs runs Main.cs which is the main selection menu of the program.
  
 ### Category.cs, Author.cs, Publisher.cs, Book.cs, Member.cs
 
-![](https://sbozich.github.io/assets/22112203.jpg)
-![](https://sbozich.github.io/assets/22112204.jpg)
-![](https://sbozich.github.io/assets/22112205.jpg)
-![](https://sbozich.github.io/assets/22112206.jpg)
-![](https://sbozich.github.io/assets/22112207.jpg)
+![Category](https://sbozich.github.io/assets/22112203.jpg)
+![Author](https://sbozich.github.io/assets/22112204.jpg)
+![Publisher](https://sbozich.github.io/assets/22112205.jpg)
+![Book](https://sbozich.github.io/assets/22112206.jpg)
+![Member](https://sbozich.github.io/assets/22112207.jpg)
 
 Those classes are similar to each other, in fact, in terms of both GUI elements and underlying code they consist of the same elements. In particular, they have in common DataGridView, ComboBox, TextBox elements and corresponding buttons for adding/updating the data. On the coding side, they all connect to the database, displaying its contents in aforementioned Windows Forms elements. The database can be updated as well. The database connectivity is ensured through the following code:
 
@@ -167,8 +167,8 @@ private void dataGridView1_CellContentClick(object sender, DataGridViewCellEvent
 
 ### LendBook.cs, ReturnBook.cs
 
-![](https://sbozich.github.io/assets/22112208.jpg)
-![](https://sbozich.github.io/assets/22112209.jpg)
+![Issue Book](https://sbozich.github.io/assets/22112208.jpg)
+![Return Book](https://sbozich.github.io/assets/22112209.jpg)
 
 The class lendbook.cs is similar to previous, the new elements are issuing and return date elements. Nothing is computed here but passed to the database. The calculation of the days is done in the returnbook.cs class: similar to the Car Rental project, the calculation is done in SQL and passed back to the program:
 

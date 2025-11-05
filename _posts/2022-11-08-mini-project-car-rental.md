@@ -6,13 +6,13 @@ tags: [C#, databases, windows forms, visual studio]
 
 In this article, we will be reviewing a simple Windows program which can be used to manage a car rental company. The program is synced to a MS SQL Server database and it features basic features like registration of cars and customers, tracking of rentals and returns. 
 
-![](https://sbozich.github.io/assets/081122Showcase.gif) 
+![Login Screen](https://sbozich.github.io/assets/081122Showcase.gif) 
 
 Front-end uses Windows Forms UI framework and the development is done in Visual Studio. The source code is available at <a href="https://github.com/sbozich/Car-Rental" target="_blank">this link</a>. 
 
 ## Database overview
  
-![](https://sbozich.github.io/assets/08112201.gif)
+![Database Overview](https://sbozich.github.io/assets/08112201.gif)
 
 The database part is done in SQL Server and it consists of four simple tables:
 
@@ -25,13 +25,13 @@ The database part is done in SQL Server and it consists of four simple tables:
 
 ## Structure of the program
 
-![](https://sbozich.github.io/assets/08112202.jpg)
+![Structure of the program](https://sbozich.github.io/assets/08112202.jpg)
 
 A program consists of the login screen, main window and sub-windows for each option (car registration, customer data, rental and return records). The main Program.cs section calls the Form1.cs and so the program is being run. The program consists of multiple .cs files which are separate classes itself. They are designed using Windows Forms UI elements from the Visual Studio corresponding toolbar. 
 
 ### Login screen (Form1.cs)
 
-![](https://sbozich.github.io/assets/08112203.jpg)
+![Login Screen](https://sbozich.github.io/assets/08112203.jpg)
         
 This simple form consists of two textboxes and two buttons. There is a predefined username (testadmin) and password (123) which is checked upon the click on the Login button. If the username and password are correctly entered, the program then creates a new instance of the class Main and displays it. 
 
@@ -59,7 +59,7 @@ private void button1_Click(object sender, EventArgs e)
 
 ### Main window (Main.cs) 
 
-![](https://sbozich.github.io/assets/08112204.jpg)
+![Main Window](https://sbozich.github.io/assets/08112204.jpg)
 
 This section simply creates objects (class instances of the corresponding classes) and displays them via the buttonX_click method:
 
@@ -96,7 +96,7 @@ private void button5_Click(object sender, EventArgs e)
 
 ### Car registration (carreg.cs)
 
-![](https://sbozich.github.io/assets/08112205.jpg)
+![Car Registration](https://sbozich.github.io/assets/08112205.jpg)
 
 From the designer’s viewpoint, this form consists of multiple elements like textboxes, buttons, grids, etc. Obviously, user can enter a registration number, make and model, and to mark whether the auto is available or not. Those data is then entered into the database and displayed within the DataGridView element on the right side. Let’s examine the most important parts of this structures and their link to the underlying code.
 
@@ -134,7 +134,7 @@ public void load()
 
 The method getid() displays the data from carreg table into the outlined textbox fields. This method is called later when editing the car data records.
 
-![](https://sbozich.github.io/assets/08112206.jpg)
+![Car Registration Details](https://sbozich.github.io/assets/08112206.jpg)
 
  ```c#
 public void getid(string id)
@@ -316,13 +316,13 @@ private void button2_Click(object sender, EventArgs e)
 
 ### Customer Registration
 
-![](https://sbozich.github.io/assets/08112207.jpg)
+![Customer Registration](https://sbozich.github.io/assets/08112207.jpg)
 
 This class follows the same logic as previous one, just the names are different.
 
 ### Rental Registration
 
-![](https://sbozich.github.io/assets/08112208.jpg)
+![Rental Registration](https://sbozich.github.io/assets/08112208.jpg)
  
 Here we have two new methods; other code is similar to previous classes. Two feats are new to explain. 
 
@@ -414,7 +414,7 @@ Here we have two new methods; other code is similar to previous classes. Two fea
 
 ### Returncar
 
-![](https://sbozich.github.io/assets/08112209.jpg)
+![Returncar](https://sbozich.github.io/assets/08112209.jpg)
 
 Class returncar takes into account CarID, CustomerID, Date of return, it counts the elapsed days and it calculates the fine if the number of rental days is bigger than defined in DueDate field in Rental Registration class. It has similar options to edit and delete data in the DataGridView. Let’s see how the fine is calculated.
 When the user enters the value into the CarID field and press an Enter, this code is being executed:
