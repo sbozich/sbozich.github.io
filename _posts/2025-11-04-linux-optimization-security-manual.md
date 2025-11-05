@@ -6,7 +6,7 @@ tags: [Zorin, Ubuntu, Linux, Optimization, Security, Systemd, Flatpak]
 author: "Sinisa Bozic"
 author_url: "https://sbozich.github.io"
 description: "Field-tested, reversible tweaks for Zorin OS 17.3 / 18 and Ubuntu-based systems: performance, power, and security."
-image: https://sbozich.github.io/assets/gear.png
+image: ![Manual icon](https://sbozich.github.io/assets/gear.png)
 ---
 
 ![Manual icon](https://sbozich.github.io/assets/gear.png)
