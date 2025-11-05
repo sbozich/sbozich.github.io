@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem "jekyll-theme-chirpy", "~> 7.0"
+gem "nokogiri", "~> 1.16.5"
 
 
 group :test do
