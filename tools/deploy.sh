@@ -60,7 +60,6 @@ test() {
     --disable-external \
     --check-html \
     --allow_hash_href \
-    --checks-to-ignore ImageCheck \
     "$SITE_DIR"
 }
 
