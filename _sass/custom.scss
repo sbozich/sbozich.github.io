@@ -1,0 +1,29 @@
+/* ===== Chirpy home post thumbnails: nicer box, no cropping ===== */
+
+/* target the thumbnail on the homepage */
+.layout-home .post-preview > a:first-child img,
+.layout-home .post-preview > div:first-child img {
+  display: block;
+  max-width: 70%;        /* control how wide it can be inside the card */
+  height: auto;          /* keep aspect ratio – don't cut */
+  object-fit: contain;   /* show whole image, no cropping */
+  margin: 0.5rem auto 0.75rem auto;  /* center + a bit of breathing room */
+  padding: 0.4rem;       /* image sits “inside” the card */
+  background: #fff;      /* in case your page bg is tinted */
+  border-radius: 0.6rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+/* make the container respect the smaller image and add internal padding */
+.layout-home .post-preview {
+  padding-top: 0.75rem;
+}
+
+/* on narrow screens, let it go full width */
+@media (max-width: 640px) {
+  .layout-home .post-preview > a:first-child img,
+  .layout-home .post-preview > div:first-child img {
+    max-width: 100%;
+    padding: 0.35rem;
+  }
+}
