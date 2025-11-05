@@ -3,8 +3,6 @@ title: "Linux Optimization & Security Manual (Zorin & Ubuntu-Based Systems)"
 date: 2025-11-04 
 categories: [Linux, ZorinOS]
 tags: [Zorin, Ubuntu, Linux, Optimization, Security, Systemd, Flatpak]
-author: "Sinisa Bozic"
-author_url: "https://sbozich.github.io"
 description: "Field-tested, reversible tweaks for Zorin OS 17.3 / 18 and Ubuntu-based systems: performance, power, and security."
 ---
 
