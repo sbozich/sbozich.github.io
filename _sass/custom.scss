@@ -1,29 +1,45 @@
-/* ===== Chirpy home post thumbnails: nicer box, no cropping ===== */
+/* ----------------------------------------------------
+   Custom: make homepage post thumbnails smaller,
+   padded, and fully visible (no cropping)
+   ---------------------------------------------------- */
 
-/* target the thumbnail on the homepage */
-.layout-home .post-preview > a:first-child img,
-.layout-home .post-preview > div:first-child img {
-  display: block;
-  max-width: 70%;        /* control how wide it can be inside the card */
-  height: auto;          /* keep aspect ratio – don't cut */
-  object-fit: contain;   /* show whole image, no cropping */
-  margin: 0.5rem auto 0.75rem auto;  /* center + a bit of breathing room */
-  padding: 0.4rem;       /* image sits “inside” the card */
-  background: #fff;      /* in case your page bg is tinted */
+/* main rule: hit ANY image inside a home-page post preview */
+.layout-home .post-preview img {
+  max-width: 180px !important;  /* shrink */
+  height: auto !important;      /* keep aspect ratio */
+  object-fit: contain !important;  /* show whole image */
+  padding: 0.4rem;
+  background: #fff;
   border-radius: 0.6rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* make the container respect the smaller image and add internal padding */
+/* if the image sits in a right column, cap the column too */
+.layout-home .post-preview > a:last-child,
+.layout-home .post-preview > div:last-child {
+  max-width: 200px;
+  margin-left: 1rem;
+}
+
+/* spacing inside each card */
 .layout-home .post-preview {
   padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
-/* on narrow screens, let it go full width */
+/* mobile: let it stretch again */
 @media (max-width: 640px) {
-  .layout-home .post-preview > a:first-child img,
-  .layout-home .post-preview > div:first-child img {
+  .layout-home .post-preview img {
+    max-width: 100% !important;
+    padding: 0.3rem;
+  }
+
+  .layout-home .post-preview > a:last-child,
+  .layout-home .post-preview > div:last-child {
     max-width: 100%;
-    padding: 0.35rem;
+    margin-left: 0;
   }
 }
