@@ -413,7 +413,9 @@ cp /etc/pam.d/gdm-password.bak /etc/pam.d/gdm-password
 
 Reboot:
 
+```
 reboot
+```
 
 #### 🔄 Update PIN
 
