@@ -269,6 +269,177 @@ Bind via Settings → Keyboard → Custom Shortcuts.
 
 ---
 
+### 5.4 — Set Up and Manage PIN Login on Zorin OS (GDM)
+
+This section explains how to enable a secure **PIN-based login and unlock** on Zorin OS (GNOME / GDM) using `libpam-pwdfile`.  
+The PIN works alongside your regular password — you can use either at any time.
+
+#### 🧱 1. Install Required Packages
+
+```bash
+sudo apt update
+sudo apt install -y libpam-pwdfile whois
+```
+#### 🗂️ 2. Back Up the Original PAM Configuration
+
+Always back up before editing PAM files.
+
+```
+sudo cp /etc/pam.d/gdm-password /etc/pam.d/gdm-password.bak
+sudo chown root:root /etc/pam.d/gdm-password.bak
+sudo chmod 600 /etc/pam.d/gdm-password.bak
+```
+
+#### 🧾 3. Create the PIN Storage File
+```
+sudo touch /etc/custompinfile
+sudo chown root:root /etc/custompinfile
+sudo chmod 600 /etc/custompinfile
+```
+
+#### 🔑 4. Add User + PIN Securely
+
+Enter your PIN interactively so it isn’t exposed in shell history.
+
+```
+read -s -p "Enter PIN for current user: " PIN; echo
+HASH=$(mkpasswd -m sha-512 "$PIN")
+sudo bash -c "echo \"$(whoami):$HASH\" >> /etc/custompinfile"
+sudo chown root:root /etc/custompinfile
+sudo chmod 600 /etc/custompinfile
+```
+
+View it (optional) — only the hashed value is shown:
+
+```
+sudo cat /etc/custompinfile
+```
+
+#### ⚙️ 5. Link the PIN to GNOME Login (PAM Rule)
+
+Add this line to the top of /etc/pam.d/gdm-password:
+
+```
+sudo sed -i '1i auth sufficient pam_pwdfile.so pwdfile=/etc/custompinfile' /etc/pam.d/gdm-password
+```
+
+Confirm:
+
+```
+sudo sed -n '1,10p' /etc/pam.d/gdm-password
+```
+
+You should see:
+
+```
+auth sufficient pam_pwdfile.so pwdfile=/etc/custompinfile
+#%PAM-1.0
+auth    requisite       pam_nologin.so
+...
+```
+
+#### 🧪 6. Test the PIN
+
+Lock the screen (Super + L) or log out.
+
+Enter your PIN and press Enter.
+
+If it fails once, log in with your normal password, then lock again and retry (PAM caches update after first login).
+
+#### 🩺 7. Verify Security
+
+```
+ls -l /etc/custompinfile
+```
+
+
+Expected:
+
+```
+-rw------- 1 root root ...
+```
+
+
+If needed:
+
+```
+sudo chown root:root /etc/custompinfile
+sudo chmod 600 /etc/custompinfile
+```
+
+#### 🧹 Disable or Remove PIN Login
+
+You can temporarily disable or fully remove the feature.
+
+##### A. Temporarily Disable PIN Login
+
+Comment out the line in /etc/pam.d/gdm-password:
+
+```
+sudo sed -i 's|^auth sufficient pam_pwdfile.so pwdfile=/etc/custompinfile|#auth sufficient pam_pwdfile.so pwdfile=/etc/custompinfile|' /etc/pam.d/gdm-password
+```
+
+To re-enable:
+
+```
+sudo sed -i 's|^#auth sufficient pam_pwdfile.so pwdfile=/etc/custompinfile|auth sufficient pam_pwdfile.so pwdfile=/etc/custompinfile|' /etc/pam.d/gdm-password
+```
+
+##### B. Completely Remove PIN Login
+
+Restore the original configuration and delete the PIN file:
+
+```
+sudo cp /etc/pam.d/gdm-password.bak /etc/pam.d/gdm-password
+sudo chmod 644 /etc/pam.d/gdm-password
+sudo rm -f /etc/custompinfile
+```
+
+#### 🧯 Recovery if Locked Out
+
+Boot into Advanced → Recovery Mode → root shell.
+
+Remount root as writable:
+
+```
+mount -o remount,rw /
+```
+
+Restore backup:
+
+```
+cp /etc/pam.d/gdm-password.bak /etc/pam.d/gdm-password
+```
+
+Reboot:
+
+reboot
+
+#### 🔄 Update PIN
+
+```
+read -s -p "Enter NEW PIN: " PIN; echo
+HASH=$(mkpasswd -m sha-512 "$PIN")
+sudo sed -i "/^$(whoami):/d" /etc/custompinfile
+sudo bash -c "echo \"$(whoami):$HASH\" >> /etc/custompinfile"
+```
+
+#### ✅ Summary
+Step	Purpose	Example Command
+1	Install dependencies	sudo apt install libpam-pwdfile whois
+2	Backup PAM file	sudo cp /etc/pam.d/gdm-password ...
+3	Create PIN file	sudo touch /etc/custompinfile
+4	Add PIN interactively	read -s -p "Enter PIN" ...
+5	Insert PAM rule	sudo sed -i '1i auth sufficient pam_pwdfile.so pwdfile=/etc/custompinfile' ...
+6	Test	Lock → Enter PIN
+Disable	Comment rule	`sudo sed -i 's
+Remove	Restore backup + delete file	see Section B
+
+Note: This method uses standard PAM modules and doesn’t modify GDM’s graphical interface. It’s secure when /etc/custompinfile is root-owned and chmod 600. Always keep your password login active as fallback.
+whois provides the mkpasswd command used to hash the PIN.
+
+---
+
 ## 🌐 6. Connectivity & Peripherals — (Stable Wireless and Bluetooth)
 
 ### 6.1 Bluetooth Resume
