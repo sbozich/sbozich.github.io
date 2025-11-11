@@ -54,7 +54,9 @@ The goal is not to chase artificial benchmarks, but to balance **performance, st
 **Target Environments**  
 - Zorin OS 17.3 / 18  
 - Ubuntu 22.04 / 24.04 LTS  
-- Linux Mint and derivatives  
+- Linux Mint and derivatives
+- GNOME and Wayland assumed
+  (most runs on Xorg too)  
 
 **Guiding Principles**  
 1. Every tweak must be **fully reversible**.  
