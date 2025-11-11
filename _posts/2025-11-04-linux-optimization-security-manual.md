@@ -274,6 +274,8 @@ Bind via Settings → Keyboard → Custom Shortcuts.
 This section explains how to enable a secure **PIN-based login and unlock** on Zorin OS (GNOME / GDM) using `libpam-pwdfile`.  
 The PIN works alongside your regular password — you can use either at any time.
 
+---
+
 #### 🧱 1. Install Required Packages
 
 ```bash
@@ -427,20 +429,243 @@ sudo bash -c "echo \"$(whoami):$HASH\" >> /etc/custompinfile"
 ```
 
 #### ✅ Summary
-Step	Purpose	Example Command
-1	Install dependencies	sudo apt install libpam-pwdfile whois
-2	Backup PAM file	sudo cp /etc/pam.d/gdm-password ...
-3	Create PIN file	sudo touch /etc/custompinfile
-4	Add PIN interactively	read -s -p "Enter PIN" ...
-5	Insert PAM rule	sudo sed -i '1i auth sufficient pam_pwdfile.so pwdfile=/etc/custompinfile' ...
-6	Test	Lock → Enter PIN
-Disable	Comment rule	`sudo sed -i 's
-Remove	Restore backup + delete file	see Section B
+
+| Step | Purpose                             | Example command / action |
+|------|-------------------------------------|---------------------------|
+| 1    | Install dependencies                | `sudo apt install libpam-pwdfile whois` |
+| 2    | Backup PAM file                     | `sudo cp /etc/pam.d/gdm-password /etc/pam.d/gdm-password.bak` |
+| 3    | Create PIN file                     | `sudo touch /etc/custompinfile && sudo chmod 600 /etc/custompinfile` |
+| 4    | Add PIN interactively               | `sudo sh -c 'mkpasswd -m sha-512 >> /etc/custompinfile'` *(you’ll be asked for the PIN)* |
+| 5    | Insert PAM rule at top of file      | `sudo sed -i '1iauth sufficient pam_pwdfile.so pwdfile=/etc/custompinfile' /etc/pam.d/gdm-password` |
+| 6    | Test                                | Lock the screen → enter PIN |
+| —    | **Disable** (temporarily)           | `sudo sed -i 's/^auth sufficient pam_pwdfile.so pwdfile=\\/etc\\/custompinfile/# &/' /etc/pam.d/gdm-password` |
+| —    | **Remove** (restore original state) | `sudo mv /etc/pam.d/gdm-password.bak /etc/pam.d/gdm-password && sudo rm /etc/custompinfile` |
+
 
 Note: This method uses standard PAM modules and doesn’t modify GDM’s graphical interface. It’s secure when /etc/custompinfile is root-owned and chmod 600. Always keep your password login active as fallback.
 whois provides the mkpasswd command used to hash the PIN.
 
+
+
 ---
+### 5.5 Listing All Installed Programs (APT, Flatpak, AppImage & GNOME Extensions)
+
+This utility script provides a **comprehensive overview** of your installed applications and GNOME extensions on Zorin OS or any Ubuntu-based Linux distribution.  
+
+It detects:
+- **APT** packages you manually installed (excluding system defaults)  
+- **Flatpak** apps, both **user** and **system** scope  
+- **AppImages** in common directories (e.g. `~/Applications`, `~/Downloads`)  
+- **AppImageLauncher**-integrated desktop entries  
+- **GNOME extensions**, including name, description, and source URL  
+
+At the end of execution, the script **prints results directly to terminal** and **asks if you want to save** them to your home folder.  
+If confirmed, it writes a timestamped `.txt` file and opens it automatically in your default text editor.
+
+---
+
+## 🧩 How to Use
+
+1. Create the script file:
+   ```bash
+   nano ~/bin/list-installed.sh
+   ```
+
+2. Paste the full code below into the file.
+
+3. Save with `Ctrl + O`, exit with `Ctrl + X`, and make it executable:
+   ```bash
+   chmod +x ~/bin/list-installed.sh
+   ```
+
+4. Run anytime with:
+   ```bash
+   list-installed.sh
+   ```
+
+---
+
+## 📜 The Script
+
+```bash
+#!/bin/bash
+# ===============================================================
+#  List installed software on Zorin / Ubuntu-like systems
+#  - APT (manual/user-installed)
+#  - Flatpak (user + system)
+#  - AppImages (common locations)
+#  - AppImageLauncher desktop entries
+#  - GNOME extensions (user + system) with metadata
+#  Shows in terminal, then asks to save to $HOME
+# ===============================================================
+
+TMPFILE=$(mktemp)
+
+teeout() {
+  tee -a "$TMPFILE"
+}
+
+echo "===== USER-INSTALLED APT PACKAGES =====" | teeout
+comm -23 \
+  <(apt-mark showmanual | sort) \
+  <(gzip -dc /var/log/installer/initial-status.gz 2>/dev/null | awk '/Package: / {print $2}' | sort) | teeout
+
+echo | teeout
+echo "===== FLATPAK (USER SCOPE) =====" | teeout
+flatpak list --user --app --columns=application,version,origin 2>/dev/null | teeout || echo "No user-scope flatpaks or flatpak not installed." | teeout
+
+echo | teeout
+echo "===== FLATPAK (SYSTEM SCOPE) =====" | teeout
+flatpak list --system --app --columns=application,version,origin 2>/dev/null | teeout || echo "No system-scope flatpaks." | teeout
+
+echo | teeout
+echo "===== APPIMAGE PROGRAMS (detected in common locations) =====" | teeout
+SEARCH_DIRS=(
+  "$HOME/Applications"
+  "$HOME/.local/bin"
+  "$HOME/Downloads"
+  "$HOME/.local/share/applications"
+)
+found_any=false
+for dir in "${SEARCH_DIRS[@]}"; do
+  if [ -d "$dir" ]; then
+    matches=$(find "$dir" -maxdepth 2 -type f -iname "*.AppImage" 2>/dev/null)
+    if [ -n "$matches" ]; then
+      echo "In: $dir" | teeout
+      echo "$matches" | teeout
+      echo | teeout
+      found_any=true
+    fi
+  fi
+done
+if [ "$found_any" = false ]; then
+  echo "No AppImages found in common locations." | teeout
+fi
+
+echo | teeout
+echo "===== APPIMAGELAUNCHER-INTEGRATED ENTRIES (.desktop) =====" | teeout
+launcher_entries=$(ls "$HOME/.local/share/applications/"*.desktop 2>/dev/null | grep -i appimage || true)
+if [ -n "$launcher_entries" ]; then
+  echo "$launcher_entries" | teeout
+else
+  echo "No AppImageLauncher desktop entries found." | teeout
+fi
+
+print_extensions_from_dir() {
+  local DIR="$1"
+  local LABEL="$2"
+
+  echo | teeout
+  echo "----- $LABEL -----" | teeout
+
+  if [ ! -d "$DIR" ]; then
+    echo "Directory not found: $DIR" | teeout
+    return
+  fi
+
+  for extdir in "$DIR"/*; do
+    [ -d "$extdir" ] || continue
+    metadata="$extdir/metadata.json"
+    if [ -f "$metadata" ]; then
+      python3 - <<'PY' | teeout
+import json, pathlib, os
+md_path = pathlib.Path(os.environ.get('METADATA'))
+try:
+    data = json.loads(md_path.read_text(encoding="utf-8"))
+except Exception:
+    print(f"* {md_path.parent.name} (could not parse metadata.json)")
+else:
+    uuid = data.get("uuid", md_path.parent.name)
+    name = data.get("name", "")
+    desc = data.get("description", "")
+    url = data.get("url", "")
+    print(f"* {uuid}")
+    if name:
+        print(f"    name: {name}")
+    if desc:
+        print(f"    desc: {desc}")
+    if url:
+        print(f"    url:  {url}")
+PY
+    else
+      echo "* $(basename "$extdir") (no metadata.json)" | teeout
+    fi
+  done
+}
+
+echo | teeout
+echo "===== GNOME EXTENSIONS (USER, with metadata) =====" | teeout
+print_extensions_from_dir "$HOME/.local/share/gnome-shell/extensions" "User extensions"
+
+echo | teeout
+echo "===== GNOME EXTENSIONS (SYSTEM, with metadata) =====" | teeout
+print_extensions_from_dir "/usr/share/gnome-shell/extensions" "System extensions"
+
+echo | teeout
+echo "===== ENABLED GNOME EXTENSIONS =====" | teeout
+if command -v gnome-extensions &>/dev/null; then
+  gnome-extensions list --enabled 2>/dev/null | teeout || echo "No enabled extensions detected." | teeout
+else
+  echo "gnome-extensions command not found." | teeout
+fi
+
+echo | teeout
+echo "===== SUMMARY =====" | teeout
+echo "Run date: $(date)" | teeout
+
+echo
+read -rp "Save this report to your home folder? (y/n): " confirm
+if [[ "$confirm" =~ ^[Yy]$ ]]; then
+  OUTFILE="$HOME/installed_$(date +%Y-%m-%d_%H-%M).txt"
+  mv "$TMPFILE" "$OUTFILE"
+  echo "Saved to: $OUTFILE"
+  if command -v xdg-open >/dev/null 2>&1; then
+    xdg-open "$OUTFILE" >/dev/null 2>&1 &
+  fi
+else
+  rm -f "$TMPFILE"
+  echo "Report not saved."
+fi
+```
+
+---
+
+## 💡 Tips
+
+- Run this after setting up your Linux system — it gives a complete inventory useful for backup or reinstallation.  
+- You can version-control your `installed_*.txt` reports in GitHub for reference.
+- Add an alias for quick access:
+  ```bash
+  alias listapps='~/bin/list-installed.sh'
+  ```
+
+---
+
+### 🧾 Output Example
+
+```
+===== USER-INSTALLED APT PACKAGES =====
+gimp
+curl
+htop
+
+===== FLATPAK (USER SCOPE) =====
+com.github.tchx84.Flatseal   1.10.0   flathub
+org.videolan.VLC             3.0.21   flathub
+...
+```
+
+---
+
+### 🏁 Result
+
+Running this script gives you:
+- A live overview of all installed software  
+- A clean, optional export file in your home directory  
+- A reproducible record of your environment for migrations or audits
+
+---
+
 
 ## 🌐 6. Connectivity & Peripherals — (Stable Wireless and Bluetooth)
 
