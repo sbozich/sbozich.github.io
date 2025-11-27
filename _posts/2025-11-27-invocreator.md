@@ -10,7 +10,15 @@ Over the last days I quietly shipped a third tool into my little toolbox family,
 > **InvoCreator – a free, privacy‑first invoice generator that runs entirely in your browser.**  
 > Live: [https://www.invocreator.com](https://www.invocreator.com)
 
-![InvoCreator Screenshot](https://raw.githubusercontent.com/sbozich/invocreator/main/assets/img/sshot.jpg)
+<p align="center">
+  <img 
+    src="https://raw.githubusercontent.com/sbozich/invocreator/main/assets/img/sshot.jpg" 
+    alt="InvoCreator Screenshot" 
+    style="max-width: 75%; border-radius: 6px;"
+  >
+</p>
+
+
 
 Most online invoice tools want an account, a subscription, and your data sitting on someone else’s servers. I wanted something much simpler:
 
