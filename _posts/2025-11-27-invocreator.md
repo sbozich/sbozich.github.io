@@ -14,7 +14,7 @@ Over the last days I quietly shipped a third tool into my little toolbox family,
   <img 
     src="https://raw.githubusercontent.com/sbozich/invocreator/main/assets/img/sshot.jpg" 
     alt="InvoCreator Screenshot" 
-    style="max-width: 75%; border-radius: 6px;"
+    style="max-width: 50%; border-radius: 6px;"
   >
 </p>
 
