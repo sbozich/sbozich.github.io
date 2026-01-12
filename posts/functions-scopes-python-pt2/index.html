@@ -1,0 +1,277 @@
+<!doctype html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover" ><meta name="generator" content="Jekyll v4.4.1" /><meta property="og:title" content="Functions and scopes in Python, Part 2" /><meta property="og:locale" content="en" /><meta name="description" content="The usual way to get an output from function is a return statement. As we have seen in the part 1 of this article, once the interpreter reaches the return statement, it returns the value and ends the processing of the function’s body. At that point, all scope internal to the function is being destroyed and nothing after that, with an exception of return value, is being retained or remembered. Yet, there is another way to code functions that would return values in a consecutive way: those are generator functions and are available in many programming languages, Python included. Such generator function’s distinction is an output type: instead of single value, they return a generator object which can be iterated. Let’s examine more closely how they function." /><meta property="og:description" content="The usual way to get an output from function is a return statement. As we have seen in the part 1 of this article, once the interpreter reaches the return statement, it returns the value and ends the processing of the function’s body. At that point, all scope internal to the function is being destroyed and nothing after that, with an exception of return value, is being retained or remembered. Yet, there is another way to code functions that would return values in a consecutive way: those are generator functions and are available in many programming languages, Python included. Such generator function’s distinction is an output type: instead of single value, they return a generator object which can be iterated. Let’s examine more closely how they function." /><link rel="canonical" href="https://sbozich.github.io/posts/functions-scopes-python-pt2/" /><meta property="og:url" content="https://sbozich.github.io/posts/functions-scopes-python-pt2/" /><meta property="og:site_name" content="sbozich" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-09-01T00:00:00+02:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Functions and scopes in Python, Part 2" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-01T00:00:00+02:00","datePublished":"2022-09-01T00:00:00+02:00","description":"The usual way to get an output from function is a return statement. As we have seen in the part 1 of this article, once the interpreter reaches the return statement, it returns the value and ends the processing of the function’s body. At that point, all scope internal to the function is being destroyed and nothing after that, with an exception of return value, is being retained or remembered. Yet, there is another way to code functions that would return values in a consecutive way: those are generator functions and are available in many programming languages, Python included. Such generator function’s distinction is an output type: instead of single value, they return a generator object which can be iterated. Let’s examine more closely how they function.","headline":"Functions and scopes in Python, Part 2","mainEntityOfPage":{"@type":"WebPage","@id":"https://sbozich.github.io/posts/functions-scopes-python-pt2/"},"url":"https://sbozich.github.io/posts/functions-scopes-python-pt2/"}</script><title>Functions and scopes in Python, Part 2 | sbozich</title><link rel="icon" type="image/png" href="/assets/img/favicons/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/assets/img/favicons/favicon.svg"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="/assets/css/jekyll-theme-chirpy.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.36.4/dist/tocbot.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="/assets/js/dist/theme.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.18/dayjs.min.js,npm/dayjs@1.11.18/locale/en.js,npm/dayjs@1.11.18/plugin/relativeTime.js,npm/dayjs@1.11.18/plugin/localizedFormat.js,npm/tocbot@4.36.4/dist/tocbot.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script defer src="/app.min.js?baseurl=&register=" ></script><body><aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end"><header class="profile-wrapper"> <a href="/" id="avatar" class="rounded-circle"><img src="https://avatars.githubusercontent.com/u/92573419?s=400&u=b8588cad17faefe915dd88072a9fdd03b516d081&v=4" width="112" height="112" alt="avatar" onerror="this.style.display='none'"></a> <a class="site-title d-block" href="/">sbozich</a><p class="site-subtitle fst-italic mb-0">Bits&pieces about tech</p></header><nav class="flex-column flex-grow-1 w-100 ps-0"><ul class="nav"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle"></i> <span>ABOUT</span> </a></ul></nav><div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"> <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle"> <i class="fas fa-adjust"></i> </button> <span class="icon-border"></span> <a href="https://github.com/sbozich" aria-label="github" target="_blank" rel="noopener noreferrer" > <i class="fab fa-github"></i> </a> <a href="javascript:location.href = 'mailto:' + ['modblaises','proton.me'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></aside><div id="main-wrapper" class="d-flex justify-content-center"><div class="container d-flex flex-column px-xxl-5"><header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar"><div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100" ><nav id="breadcrumb" aria-label="Breadcrumb"> <span> <a href="/">Home</a> </span> <span>Functions and scopes in Python, Part 2</span></nav><button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar"> <i class="fas fa-bars fa-fw"></i> </button><div id="topbar-title"> Post</div><button type="button" id="search-trigger" class="btn btn-link" aria-label="Search"> <i class="fas fa-search fa-fw"></i> </button> <search id="search" class="align-items-center ms-3 ms-lg-0"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..." > </search> <button type="button" class="btn btn-link text-decoration-none" id="search-cancel">Cancel</button></div></header><div class="row flex-grow-1"><main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4"><article class="px-1" data-toc="true"><header><h1 data-toc-skip>Functions and scopes in Python, Part 2</h1><div class="post-meta text-muted"> <span> Posted <time data-ts="1661983200" data-df="ll" data-bs-toggle="tooltip" data-bs-placement="bottom" > Sep 1, 2022 </time> </span><div class="d-flex justify-content-between"> <span> By <em> <a href="https://github.com/sbozich">Sinisa Bozic</a> </em> </span><div> <span class="readtime" data-bs-toggle="tooltip" data-bs-placement="bottom" title="1524 words" > <em>8 min</em> read</span></div></div></div></header><div id="toc-bar" class="d-flex align-items-center justify-content-between invisible"> <span class="label text-truncate">Functions and scopes in Python, Part 2</span> <button type="button" class="toc-trigger btn me-1"> <i class="fa-solid fa-list-ul fa-fw"></i> </button></div><button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm"> <span class="label ps-2 pe-1">Contents</span> <i class="fa-solid fa-angle-right fa-fw"></i> </button> <dialog id="toc-popup" class="p-0"><div class="header d-flex flex-row align-items-center justify-content-between"><div class="label text-truncate py-2 ms-4">Functions and scopes in Python, Part 2</div><button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75"> <i class="fas fa-close"></i> </button></div><div id="toc-popup-content" class="px-4 py-3 pb-4"></div></dialog><div class="content"><p>The usual way to get an output from function is a return statement. As we have seen in the <a href="https://sbozich.github.io/posts/Functions-scopes-Python-pt1/" target="_blank">part 1</a> of this article, once the interpreter reaches the return statement, it returns the value and ends the processing of the function’s body. At that point, all scope internal to the function is being destroyed and nothing after that, with an exception of return value, is being retained or remembered. Yet, there is another way to code functions that would return values in a consecutive way: those are generator functions and are available in many programming languages, Python included. Such generator function’s distinction is an output type: instead of single value, they return a generator object which can be iterated. Let’s examine more closely how they function.</p><h2 id="yield-statement"><span class="me-2">Yield statement</span><a href="#yield-statement" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>While usual functions return value and are done with any computation or memorization afterwards, generator functions can remember their state (scope and variables’ values); thus, they can be stopped and later resumed. Therefore, when being suspended, they yield the value, temporarily stop the execution which can be resumed because the state is saved. Yield can be seen as a consecutive return because it returns the value in a similar manner, but it can be resumed. This allows the function to output a series of values throughout the function’s run-time, in a contrast to returning all the work immediately and exiting like return functions do. There are particular usage-cases for generator functions which we’ll later more closely examine.</p><p>We mentioned that generator functions output generators which can be iterated. It turns out that they share common traits with the iteration protocol. In Python, iterator objects implement a <strong>next</strong> method which iterates one step forward until the end of iteration range is reached, raising an StopIteration exception to mark the end of iteration. All iteration methods use this iteration protocol which is also used by generator functions, making them in a sense a variation of iterators. The generator object which is the output of generator function supports the iteration protocol and aforementioned <strong>next</strong> method, which is being run until either the next yield value or StopIteration exception. To illustrate this, consider following example:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">gen_func</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">First iteration</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="n">a</span>
+
+    <span class="n">a</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Second iteration</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="n">a</span>
+
+    <span class="n">a</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Last iteration</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="n">a</span>
+
+<span class="n">b</span><span class="o">=</span><span class="nf">gen_func</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nf">next</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nf">next</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nf">next</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></table></code></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>First iteration
+Second iteration
+Last iteration
+</pre></table></code></div></div><p>As we can see, by using yield returns, the local scope is remembered, so when the next method is used on a generator function object, it actually iterates one step further, as if it would in any iterative process (in order to output yield value to the console print method should be used). When next reaches end of iterative range, it finishes and it can’t be called again using the same function’s call.</p><p>If we try to print out the object:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nf">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></table></code></div></div><p>The output we’d get is:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="n">gen_func</span> <span class="n">at</span> <span class="mh">0x000002595D926420</span><span class="o">&gt;</span>
+</pre></table></code></div></div><p>To get and display the yielded values from the object we need to iterate them and use print:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">gen_func</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></table></code></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre>First iteration
+3
+Second iteration
+4
+Last iteration
+5
+</pre></table></code></div></div><p>We can put them in a list as well:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="nf">print</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="nf">gen_func</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+<span class="n">Output</span><span class="p">:</span>
+<span class="n">First</span> <span class="n">iteration</span>
+<span class="n">Second</span> <span class="n">iteration</span>
+<span class="n">Last</span> <span class="n">iteration</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></table></code></div></div><p>We could get the same results as in the previous example by using a standard function with returned list of generated values. However, when it comes to processing larger data sets, they may have an advantage in terms of memory use and performance since they don’t execute in the moment and completely but rather in consecutive steps. By doing so they actually distribute the resources (computational power which equals time as well as the memory space) over a number of iterations.</p><p>Consider this example:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">timeit</span>
+
+<span class="k">def</span> <span class="nf">sq</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>  
+    <span class="n">lista</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">lista</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lista</span>
+
+<span class="k">def</span> <span class="nf">gen_sq</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">normft</span><span class="o">=</span><span class="n">timeit</span><span class="p">.</span><span class="nf">timeit</span><span class="p">(</span><span class="sh">'</span><span class="s">sq(1000000)</span><span class="sh">'</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nf">globals</span><span class="p">(),</span> <span class="n">number</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">genf</span><span class="o">=</span><span class="n">timeit</span><span class="p">.</span><span class="nf">timeit</span><span class="p">(</span><span class="sh">'</span><span class="s">gen_sq(1000000)</span><span class="sh">'</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nf">globals</span><span class="p">(),</span> <span class="n">number</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Exec time of a normal function: </span><span class="sh">'</span><span class="p">,</span> <span class="n">normft</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Exec time of a generator function: </span><span class="sh">'</span><span class="p">,</span> <span class="n">genf</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Exec time of a generator function is faster on average </span><span class="sh">"</span><span class="p">,</span> <span class="n">normft</span><span class="o">//</span><span class="n">genf</span><span class="p">,</span> <span class="sh">"</span><span class="s"> times</span><span class="sh">"</span><span class="p">)</span>
+</pre></table></code></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>Exec time of a normal function:  1.7032738999696448
+Exec time of a generator function:  4.499917849898338e-06
+Exec time of a generator function is faster on average 378512.0 times
+</pre></table></code></div></div><p>Functions sq(n) and gen_sq(n) do the same thing, which is computing a range of numbers’ squares. The first function makes all the computation and saves the results in the list while another creates generator which does the same computing but without using memory, hence the enormous execution time difference. Therefore, generators really shine when processing large data input.</p><p>Another possible usage is infinite streams. As generator functions don’t create any data structure it is possible to generate infinite iteration stream within a function. In the following example we demonstrate the way to generate infinite stream outside and inside the function, using generators. When executed, both codes will loop infinitively, but calling the function gives more flexibility, for instance using it with if branching, or inside another function or class, etc.</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">a</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">a</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">inc_nums</span><span class="p">():</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">n</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></table></code></div></div><p>Another example of using generator functions would be reading a very large textual file (.txt, .csv, .json and similar formats where data is separated via a newline) to extract a number of rows. We could use a normal function to do so:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">text_reader</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="nf">read</span><span class="p">().</span><span class="nf">split</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">row_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">text_gen</span> <span class="o">=</span> <span class="nf">text_reader</span><span class="p">(</span><span class="sh">"</span><span class="s">some_file.txt</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">text_gen</span><span class="p">:</span>
+    <span class="n">row_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Row count is </span><span class="sh">"</span><span class="p">,</span> <span class="n">row_count</span><span class="p">)</span>
+</pre></table></code></div></div><p>This will function fine as long as the input data’s size is modest at most because the program processes whole input file at once. If we convert it to generator function, it will be able to process input files regardless of the file size, as the generator would process the data in a sequence manner sending back only specific value:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">text_reader</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">row</span>
+
+<span class="n">row_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">text_gen</span> <span class="o">=</span> <span class="nf">text_reader</span><span class="p">(</span><span class="sh">"</span><span class="s">some_file.txt</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">text_gen</span><span class="p">:</span>
+    <span class="n">row_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Row count is</span><span class="sh">"</span><span class="p">,</span> <span class="n">row_count</span><span class="p">)</span>
+</pre></table></code></div></div><h2 id="lambda"><span class="me-2">Lambda</span><a href="#lambda" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Many popular programming languages, Python included, provide another way to create functions. That is lambda expression. It is used to create small, inline functions which are unnamed (although a name could be assigned but it’s not mandatory) and as such, executed without a call. Lambda is a single-liner, opposed to a block of statements when using def. Lambda is not a statement but an expression and as such is possible to appear inside places where def couldn’t (as an argument in function call, for instance).</p><p>This code returns the same values:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="n">a</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">a</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">mt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="nf">mt</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></table></code></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>50
+</pre></table></code></div></div><p>General form of lambda is:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>lambda [arg1, arg2,… argN]: expression 
+</pre></table></code></div></div><p>Names assigned inside lambda retain their scope, as seen from the following example:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">names</span><span class="p">():</span>
+    <span class="n">first_name</span><span class="o">=</span><span class="sh">'</span><span class="s">John</span><span class="sh">'</span>
+    <span class="n">full_name</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">first_name</span><span class="o">+</span><span class="sh">'</span><span class="s"> </span><span class="sh">'</span> <span class="o">+</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">full_name</span>
+
+<span class="n">first_client</span><span class="o">=</span><span class="nf">names</span><span class="p">()</span>
+<span class="n">name_surname</span><span class="o">=</span><span class="nf">first_client</span><span class="p">(</span><span class="sh">'</span><span class="s">Smith</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">first_client</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">name_surname</span><span class="p">)</span>
+</pre></table></code></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre>&lt;function names.&lt;locals&gt;.&lt;lambda&gt; at 0x0000023F61CCA4D0&gt;
+John Smith
+</pre></table></code></div></div><p>As a shortened version of def, lambda expression is mostly used where statement can’t be inserted but expression can, as in jump tables:</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre><td class="rouge-code"><pre><span class="c1"># this code uses lambda as a list literal, where def can't go
+</span><span class="n">lista</span><span class="o">=</span><span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>  <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">]</span> 
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="nf">a</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># code below outputs the same yet uses def
+# def square(x): return x**2
+# def cube(x): return x**3
+# def quad(x): return x**4
+</span>
+<span class="c1"># lista2=[square,cube,quad]
+</span>
+<span class="c1"># for a in lista2:
+#     print(a(3))
+</span></pre></table></code></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>9
+27
+81
+</pre></table></code></div></div><p>In Python, lambda is often used in connection to higher-order functions; more precisely lambda is used as an argument along with functions like filter() and map().</p><p><b>Using filter():</b></p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="n">lista</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">lista2</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="nf">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">),</span> <span class="n">lista</span><span class="p">))</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">lista2</span><span class="p">)</span>
+</pre></table></code></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>[-10, -9, -8, -7, -6]
+</pre></table></code></div></div><p><b>Using map(): </b></p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="n">lista</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">lista2</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">lista</span><span class="p">))</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">lista2</span><span class="p">)</span>
+</pre></table></code></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>[100, 81, 64, 49, 36, 36, 49, 64, 81, 100]
+</pre></table></code></div></div><h2 id="conclusion"><span class="me-2">Conclusion</span><a href="#conclusion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>In this article series we’ve touched upon the basic premises of functional programming in general, as well as some of the basic functional elements in Python. Generator and anonymous functions are more advanced concepts with which a programmer should be at least familiar, because they can be used either to shorten, or in some cases to optimize the code and as such, it is useful to get acknowledged about their existence, structure and common usage cases.</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw me-1"></i> <a href="/categories/python/">python</a>, <a href="/categories/functional-programming/">functional programming</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw me-1"></i> <a href="/tags/python/" class="post-tag no-text-decoration" >python</a> <a href="/tags/functions/" class="post-tag no-text-decoration" >functions</a> <a href="/tags/scopes/" class="post-tag no-text-decoration" >scopes</a> <a href="/tags/def/" class="post-tag no-text-decoration" >def</a> <a href="/tags/return/" class="post-tag no-text-decoration" >return</a> <a href="/tags/nonlocal/" class="post-tag no-text-decoration" >nonlocal</a> <a href="/tags/global/" class="post-tag no-text-decoration" >global</a></div><div class=" post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2 " ><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper d-flex align-items-center"> <span class="share-label text-muted">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Functions%20and%20scopes%20in%20Python,%20Part%202%20-%20sbozich&url=https%3A%2F%2Fsbozich.github.io%2Fposts%2Ffunctions-scopes-python-pt2%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Functions%20and%20scopes%20in%20Python,%20Part%202%20-%20sbozich&u=https%3A%2F%2Fsbozich.github.io%2Fposts%2Ffunctions-scopes-python-pt2%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://t.me/share/url?url=https%3A%2F%2Fsbozich.github.io%2Fposts%2Ffunctions-scopes-python-pt2%2F&text=Functions%20and%20scopes%20in%20Python,%20Part%202%20-%20sbozich" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <button id="copy-link" aria-label="Copy link" class="btn small" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy link" data-title-succeed="Link copied successfully!" > <i class="fa-fw fas fa-link pe-none fs-6"></i> </button> </span></div></div></div></article></main><aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted"><div class="access"><section id="access-lastmod"><h2 class="panel-heading">Recently Updated</h2><ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2"><li class="text-truncate lh-lg"> <a href="/posts/SEPA-SCT-tool/">SEPA SCT Tool v0.1 — Deterministic pain.001.001.09 CLI and Web Demo</a><li class="text-truncate lh-lg"> <a href="/posts/salary-calculator/">Introducing GrossNetto – a Free, Privacy‑First Gross↔Net Salary Calculator</a><li class="text-truncate lh-lg"> <a href="/posts/Full-Linux-Audio-Modernization-Zorin-OS-(PipeWire+Bluetooth-A2DP)/">Full Linux Audio Modernization on Zorin OS (PipeWire + Bluetooth A2DP)</a><li class="text-truncate lh-lg"> <a href="/posts/invocreator/">Introducing InvoCreator – a Free, Privacy‑First Invoice Generator</a><li class="text-truncate lh-lg"> <a href="/posts/linux-optimization-security-manual/">Linux Optimization & Security Manual (Zorin & Ubuntu-Based Systems)</a></ul></section><section><h2 class="panel-heading">Trending Tags</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"> <a class="post-tag btn btn-outline-primary" href="/tags/python/">python</a> <a class="post-tag btn btn-outline-primary" href="/tags/functions/">functions</a> <a class="post-tag btn btn-outline-primary" href="/tags/bytecode/">bytecode</a> <a class="post-tag btn btn-outline-primary" href="/tags/compiler/">compiler</a> <a class="post-tag btn btn-outline-primary" href="/tags/databases/">databases</a> <a class="post-tag btn btn-outline-primary" href="/tags/interpreter/">interpreter</a> <a class="post-tag btn btn-outline-primary" href="/tags/algorithms/">algorithms</a> <a class="post-tag btn btn-outline-primary" href="/tags/arguments/">arguments</a> <a class="post-tag btn btn-outline-primary" href="/tags/big-o/">big-o</a> <a class="post-tag btn btn-outline-primary" href="/tags/books/">books</a></div></section></div><div class="toc-border-cover z-3"></div><section id="toc-wrapper" class="invisible position-sticky ps-0 pe-4 pb-4"><h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2><nav id="toc"></nav></section></aside></div><div class="row"><div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4"><aside id="related-posts" aria-labelledby="related-label"><h3 class="mb-4" id="related-label">Further Reading</h3><nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4"><article class="col"> <a href="/posts/Functions-scopes-Python-pt1/" class="post-preview card h-100"><div class="card-body"> <time data-ts="1661464800" data-df="ll" > Aug 26, 2022 </time><h4 class="pt-0 my-2">Functions and scopes in Python, Part 1</h4><div class="text-muted"><p>Functions are integral part of most programming languages. Together with classes in OOP-supported languages, they make the code more readable, concise, usable, maintainable thus greatly enhancing t...</p></div></div></a></article><article class="col"> <a href="/posts/function-arguments-python/" class="post-preview card h-100"><div class="card-body"> <time data-ts="1664229600" data-df="ll" > Sep 27, 2022 </time><h4 class="pt-0 my-2">Functions' arguments in Python</h4><div class="text-muted"><p>Arguments, as pieces of information passed to a function provide a way to insert values into function’s mechanism. In Python, function arguments directly depend on object reference model, as there ...</p></div></div></a></article><article class="col"> <a href="/posts/determining-most-occuring-item/" class="post-preview card h-100"><div class="card-body"> <time data-ts="1664316000" data-df="ll" > Sep 28, 2022 </time><h4 class="pt-0 my-2">Determining the most frequently occuring item in a sequence</h4><div class="text-muted"><p>A sequence is a positionally ordered collection of items. It consists of elements which can be refered to using the index number. In the most programming languages, Python included, the elements’ ...</p></div></div></a></article></nav></aside><nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation"> <a href="/posts/Sum-intervals-codewars-challenge/" class="btn btn-outline-primary" aria-label="Older" ><p>Sum of intervals Codewars challenge</p></a> <a href="/posts/function-arguments-python/" class="btn btn-outline-primary" aria-label="Newer" ><p>Functions' arguments in Python</p></a></nav><footer aria-label="Site Info" class=" d-flex flex-column justify-content-center text-muted flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3 " ><p>© <time>2026</time> <a href="https://github.com/sbozich">Sinisa Bozic</a>. <span data-bs-toggle="tooltip" data-bs-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author." >Some rights reserved.</span></p><p>Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a data-bs-toggle="tooltip" data-bs-placement="top" title="v7.4.1" href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener" >Chirpy</a> theme.</p></footer></div></div><div id="search-result-wrapper" class="d-flex justify-content-center d-none"><div class="col-11 content"><div id="search-hints"><section><h2 class="panel-heading">Trending Tags</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"> <a class="post-tag btn btn-outline-primary" href="/tags/python/">python</a> <a class="post-tag btn btn-outline-primary" href="/tags/functions/">functions</a> <a class="post-tag btn btn-outline-primary" href="/tags/bytecode/">bytecode</a> <a class="post-tag btn btn-outline-primary" href="/tags/compiler/">compiler</a> <a class="post-tag btn btn-outline-primary" href="/tags/databases/">databases</a> <a class="post-tag btn btn-outline-primary" href="/tags/interpreter/">interpreter</a> <a class="post-tag btn btn-outline-primary" href="/tags/algorithms/">algorithms</a> <a class="post-tag btn btn-outline-primary" href="/tags/arguments/">arguments</a> <a class="post-tag btn btn-outline-primary" href="/tags/big-o/">big-o</a> <a class="post-tag btn btn-outline-primary" href="/tags/books/">books</a></div></section></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><aside aria-label="Scroll to Top"> <button id="back-to-top" type="button" class="btn btn-lg btn-box-shadow"> <i class="fas fa-angle-up"></i> </button></aside></div><div id="mask" class="d-none position-fixed w-100 h-100 z-1"></div><aside id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-animation="true" data-bs-autohide="false" ><div class="toast-header"> <button type="button" class="btn-close ms-auto" data-bs-dismiss="toast" aria-label="Close" ></button></div><div class="toast-body text-center pt-0"><p class="px-2 mb-3">A new version of content is available.</p><button type="button" class="btn btn-primary" aria-label="Update"> Update </button></div></aside><script> document.addEventListener('DOMContentLoaded', () => { SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<article class="px-1 px-sm-2 px-lg-4 px-xl-0"><header><h2><a href="{url}">{title}</a></h2><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div></header><p>{content}</p></article>', noResultsText: '<p class="mt-5">Oops! No results found.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="me-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); }); </script>
