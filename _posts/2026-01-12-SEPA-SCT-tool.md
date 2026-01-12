@@ -11,7 +11,7 @@ SEPA SCT Tool v0.1 is an **open‑source, deterministic generator and validator*
 (Customer Credit Transfer Initiation; 2019 message version).
 
 Project repository:  
-**https://github.com/sbozich/sepa-sct-toolkit**
+**[https://github.com/sbozich/sepa-sct-toolkit](https://github.com/sbozich/sepa-sct-toolkit)**
 
 This post serves as a **long‑form introduction** to the project. It complements the GitHub README
 and is intended for readers who want to understand *why* the tool exists, *how* it is designed,
