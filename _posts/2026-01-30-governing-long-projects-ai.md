@@ -4,8 +4,6 @@ categories: [engineering, ai, solo-building]
 tags: [ai, governance, documentation, solo-projects, systems-thinking]
 ---
 
-# PSL & MSD: Governing Long‑Running Projects in the Age of AI
-
 ## Why this exists
 
 Anyone who has seriously used AI as a project partner has encountered the same failure mode:  
