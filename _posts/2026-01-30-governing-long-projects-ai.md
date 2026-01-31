@@ -106,8 +106,8 @@ In practice, this means you can resume a complex project weeks later — with a 
 ## What this enabled in practice
 
 I validated this approach across two completed projects:
-- a multi‑market salary calculator with country‑specific legal logic
-- a SEPA SCT tooling project that required a full baseline reset mid‑development
+- a **[multi‑market salary calculator](https://sbozich.github.io/posts/salary-calculator/)** with country‑specific legal logic
+- a **[SEPA SCT tooling project](https://github.com/sbozich/sepa-sct-toolkit)** that required a full baseline reset mid‑development
 
 In the SEPA case, an early architectural assumption was later proven wrong. Instead of deleting work or pretending it never happened, the project:
 - reopened the relevant phase
