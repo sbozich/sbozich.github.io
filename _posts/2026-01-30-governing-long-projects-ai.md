@@ -145,7 +145,7 @@ It is:
 - discipline‑dependent
 - optimized for solo builders or solo + AI workflows
 
-It is not suitable for:
+It is **[not suitable](https://sbozich.github.io/posts/when-psl-msd-are-overkill/)** for:
 - exploratory hacking
 - throwaway prototypes
 - early ideation phases
