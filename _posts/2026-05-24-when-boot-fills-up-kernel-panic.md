@@ -1,6 +1,6 @@
 ---
 title: "How a Full /boot Partition Rendered an Encrypted MX Linux System Unbootable"
-date: 2026-05-25 23:00:00 +0200
+date: 2026-05-24 23:00:00 +0200
 categories: [Linux, Troubleshooting]
 tags: [MX Linux, Debian, LUKS, Kernel Panic, initramfs, GRUB, Linux Recovery, /boot]
 ---
