@@ -5,8 +5,6 @@ categories: [Linux, Troubleshooting]
 tags: [MX Linux, Debian, LUKS, Kernel Panic, initramfs, GRUB, Linux Recovery, /boot]
 ---
 
-## Introduction
-
 Linux systems have an interesting habit of continuing to operate normally even when something important underneath has already started falling apart.
 
 A machine may boot, update packages, play media, browse the web, and behave completely normally while some hidden inconsistency quietly accumulates in the background. The actual failure often arrives later, usually after a reboot, when the system is forced to rely on boot artifacts that were generated days or weeks earlier.
