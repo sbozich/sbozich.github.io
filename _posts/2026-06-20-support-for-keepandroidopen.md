@@ -7,12 +7,10 @@ tags: [android, open-source, privacy, digital-rights, foss, keep-android-open]
 
 
 <p align="center">
-  <a href="https://keepandroidopen.org/" target="_blank" rel="noopener">
-    <img
-      src="https://keepandroidopen.org/img/altered-deal.png"
-      alt="Keep Android Open - Altered Deal"
-      width="700">
-  </a>
+  <img
+    src="https://keepandroidopen.org/img/altered-deal.png"
+    alt="Keep Android Open - Altered Deal"
+    width="700">
 </p>
 
 
