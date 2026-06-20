@@ -1,6 +1,6 @@
 ---
 title: "Support for Keep Android Open"
-date: 2026-06-20
+date: 2026-06-19
 categories: [Technology, Android, Digital Rights]
 tags: [android, open-source, privacy, digital-rights, foss, keep-android-open]
 ---
