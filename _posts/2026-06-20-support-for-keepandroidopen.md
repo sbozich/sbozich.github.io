@@ -1,13 +1,13 @@
 ---
 title: "Support for Keep Android Open"
-date: 2026-06-19
+date: 2026-06-20
 categories: [Technology, Android, Digital Rights]
 tags: [android, open-source, privacy, digital-rights, foss, keep-android-open]
 ---
 
 
 <p align="center">
-  <a href="https://keepandroidopen.org/" target="_blank">
+  <a href="https://keepandroidopen.org/" target="_blank" rel="noopener">
     <img
       src="https://keepandroidopen.org/img/altered-deal.png"
       alt="Keep Android Open - Altered Deal"
