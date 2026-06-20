@@ -6,12 +6,12 @@ tags: [android, open-source, privacy, digital-rights, foss, keep-android-open]
 ---
 
 
-<p align="center">
+<div style="text-align: center; margin: 2rem 0;">
   <img
     src="https://keepandroidopen.org/img/altered-deal.png"
     alt="Keep Android Open - Altered Deal"
     style="max-width: 450px; width: 100%; height: auto;">
-</p>
+</div>
 
 
 One of the reasons I chose Android over other mobile platforms was simple: it gave me freedom.
