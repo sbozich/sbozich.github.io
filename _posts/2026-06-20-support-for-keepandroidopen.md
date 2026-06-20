@@ -10,7 +10,7 @@ tags: [android, open-source, privacy, digital-rights, foss, keep-android-open]
   <img
     src="https://keepandroidopen.org/img/altered-deal.png"
     alt="Keep Android Open - Altered Deal"
-    width="700">
+    style="max-width: 450px; width: 100%; height: auto;">
 </p>
 
 
